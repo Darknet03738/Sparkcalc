@@ -293,7 +293,7 @@ footer { padding: 58px 0 30px; background: #050c12; }
 }
 .panel h2, .panel h3 { margin-top: 0; letter-spacing: -.025em; line-height: 1.2; }
 .panel h2, .panel h3 { color: #0f2532; }
-.panel p { color: #526776; }
+.panel p { color: #344f60; }
 .module-list { display: grid; gap: 14px; }
 .module-item {
   display: grid;
@@ -307,7 +307,7 @@ footer { padding: 58px 0 30px; background: #050c12; }
   color: #13232d;
   box-shadow: 0 14px 34px rgba(22, 44, 58, .07);
 }
-.module-item p { margin: 4px 0 0; color: #526776; font-size: 14px; }
+.module-item p { margin: 4px 0 0; color: #344f60; font-size: 14px; }
 .module-item h3 { margin: 0; color: #0f2532; font-size: 18px; }
 .page-section .btn:not(.primary):not(.amber), .auth-card .btn:not(.primary):not(.amber) {
   border-color: #b7c9d3;
@@ -326,7 +326,7 @@ footer { padding: 58px 0 30px; background: #050c12; }
   background: #f8fbfd;
 }
 .stat b { display: block; font-size: 24px; letter-spacing: -.03em; }
-.stat span { color: #617382; font-size: 13px; }
+.stat span { color: #405b6b; font-size: 13px; }
 .form-grid { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
 .form-grid .field.full { grid-column: 1 / -1; }
 .panel .field label, .auth-card .field label { color: #425765; }
@@ -373,7 +373,7 @@ footer { padding: 58px 0 30px; background: #050c12; }
   font-weight: 800;
 }
 .step h3 { margin: 0 0 4px; font-size: 17px; }
-.step p { margin: 0; color: #526776; font-size: 14px; }
+.step p { margin: 0; color: #344f60; font-size: 14px; }
 .auth-shell { display: grid; min-height: calc(100vh - 72px); place-items: center; padding: 46px 0; background: #f4f7f9; color: #13232d; }
 .auth-card {
   width: min(460px, calc(100% - 32px));
@@ -384,7 +384,7 @@ footer { padding: 58px 0 30px; background: #050c12; }
   box-shadow: 0 24px 70px rgba(22, 44, 58, .12);
 }
 .auth-card h1 { margin: 12px 0 8px; font-size: 34px; letter-spacing: -.04em; line-height: 1.08; }
-.auth-card p { margin: 0 0 22px; color: #526776; }
+.auth-card p { margin: 0 0 22px; color: #344f60; }
 .auth-card .btn { width: 100%; margin-top: 16px; }
 .muted-link { color: var(--blue); font-weight: 700; }
 .page-main .pricing { border-top: 0; background: #f4f7f9; }
@@ -394,9 +394,11 @@ footer { padding: 58px 0 30px; background: #050c12; }
   color: #13232d;
   box-shadow: 0 18px 45px rgba(22, 44, 58, .08);
 }
-.page-main .price.pro { border-color: #62b9e8; box-shadow: inset 0 3px var(--blue), 0 24px 60px rgba(22, 44, 58, .12); }
-.page-main .price { border-color: #ffb629; box-shadow: inset 0 3px var(--amber), 0 24px 60px rgba(22, 44, 58, .12); }
-.page-main .amount small { color: #617382; }
+.page-main .price:not(.pro) { border-color: #e5a11f; box-shadow: inset 0 3px var(--amber), 0 22px 54px rgba(127, 91, 20, .12); }
+.page-main .price.pro { border-color: #42aee8; box-shadow: inset 0 3px var(--blue), 0 24px 60px rgba(22, 44, 58, .12); }
+.page-main .price h3, .page-main .amount { color: #0f2532; }
+.page-main .price > p, .page-main .features li { color: #344f60; }
+.page-main .amount small { color: #405b6b; }
 .page-main .features { border-top-color: #d8e2e8; }
 
 @media (max-width: 900px) {
