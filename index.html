@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cálculo, análisis y gestión de proyectos eléctricos en una sola plataforma.">
+  <title>Sparkcalc - Ingeniería eléctrica conectada</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Sparkcalc inicio">
+        <span class="mark" aria-hidden="true">ϟ</span>
+        <span>SPARKCALC</span>
+      </a>
+      <nav class="links" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#herramientas">Herramientas</a>
+        <a href="#planes">Planes</a>
+        <a href="#soporte">Soporte</a>
+      </nav>
+      <div class="actions">
+        <a class="btn" href="#">Iniciar sesión</a>
+        <a class="btn primary" href="#planes">Registrarse</a>
+      </div>
+    </div>
+  </header>
+
+  <button class="quick-trigger" id="quickOpen" type="button" aria-controls="quickPanel" aria-expanded="false">
+    <span class="bolt" aria-hidden="true">ϟ</span>
+    <span class="label">Cálculos rápidos</span>
+  </button>
+  <div class="quick-backdrop" id="quickBackdrop"></div>
+
+  <aside class="quick-panel" id="quickPanel" aria-hidden="true" aria-label="Cálculos rápidos y convertidores">
+    <div class="quick-head">
+      <div>
+        <div class="eyebrow">Disponible en todo momento</div>
+        <h2>Cálculos rápidos</h2>
+        <p>Consulta, convierte y vuelve a tu trabajo sin perder el contexto.</p>
+      </div>
+      <button class="close" id="quickClose" type="button" aria-label="Cerrar panel">×</button>
+    </div>
+
+    <div class="quick-groups" aria-label="Categorías de cálculo">
+      <button class="quick-link active" type="button">Ω Ley de Ohm</button>
+      <button class="quick-link" type="button">W Ley de Potencia</button>
+      <button class="quick-link" type="button">⇄ Convertir unidades</button>
+      <button class="quick-link" type="button">▤ Conductores</button>
+      <button class="quick-link" type="button">△ Trifásicos</button>
+      <button class="quick-link" type="button">cosφ Factor de potencia</button>
+    </div>
+
+    <div class="mini-calc">
+      <h3>Ley de Ohm</h3>
+      <p>Introduce tensión y resistencia para calcular la corriente.</p>
+      <div class="field-row">
+        <div class="field">
+          <label for="voltage">Tensión (V)</label>
+          <input id="voltage" type="number" value="120" min="0" inputmode="decimal">
+        </div>
+        <div class="field">
+          <label for="resistance">Resistencia (Ω)</label>
+          <input id="resistance" type="number" value="24" min="0.001" inputmode="decimal">
+        </div>
+      </div>
+      <div class="result">
+        <span>Corriente calculada</span>
+        <strong id="current">5.00 A</strong>
+      </div>
+    </div>
+
+    <p class="panel-note">
+      Los cálculos rápidos son auxiliares y no modifican los datos del módulo activo hasta que el usuario elija "Usar resultado".
+    </p>
+  </aside>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Ingeniería eléctrica · conectada</div>
+          <h1>Del cálculo a la obra, <span>sin puntos ciegos.</span></h1>
+          <p class="lead">
+            Dimensiona, verifica y presupuesta instalaciones eléctricas en un entorno diseñado para ingenieros,
+            técnicos y estudiantes que necesitan resultados trazables.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#herramientas">Explorar herramientas →</a>
+            <a class="btn" href="#planes">Ver planes Premium</a>
+          </div>
+          <div class="micro">
+            <span>Cálculos centralizados</span>
+            <span>Datos reutilizables</span>
+            <span>Reportes técnicos</span>
+          </div>
+        </div>
+
+        <aside class="diagram" aria-label="Resumen visual de un proyecto eléctrico">
+          <div class="flow">
+            <div class="flow-row">
+              <div class="node">RED</div>
+              <div class="wire"></div>
+              <div class="metric"><b>13,2 kV</b><small>Entrada</small></div>
+            </div>
+            <div class="flow-row">
+              <div class="node">TRAFO</div>
+              <div class="wire"></div>
+              <div class="metric"><b>150 kVA</b><small>Carga</small></div>
+            </div>
+            <div class="flow-row">
+              <div class="node">TGBT</div>
+              <div class="wire"></div>
+              <div class="metric"><b>1,8%</b><small>ΔV total</small></div>
+            </div>
+          </div>
+          <div class="status">
+            <span>PROYECTO / PLANTA NORTE</span>
+            <span><strong>●</strong> VERIFICADO</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="tools" id="herramientas">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Módulos de proyecto</div>
+            <h2>Herramientas avanzadas<br>para cada etapa.</h2>
+          </div>
+          <p>
+            Los módulos de ingeniería conservan el flujo principal del proyecto. Las consultas auxiliares ahora
+            viven en un panel global, siempre disponible y sin interrumpir el trabajo.
+          </p>
+        </div>
+        <div class="tools-note">
+          <b>ϟ Acceso global:</b>
+          abre "Cálculos rápidos" desde cualquier pantalla para usar Ley de Ohm, potencia, conversiones, conductores y más.
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top"><span class="icon">⚡</span><span class="tag">Premium</span></div>
+            <h3>Calculadora eléctrica completa</h3>
+            <p>Dimensiona desde el transformador hasta conductores, tableros y protecciones con una secuencia técnica conectada.</p>
+            <a href="#planes">Abrir ficha <span>↗</span></a>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="icon">⌂</span><span class="tag free">Gratis</span></div>
+            <h3>Residencial y comercial</h3>
+            <p>Calcula cargas, demanda, circuitos derivados y protecciones para instalaciones de baja tensión.</p>
+            <a href="#planes">Comenzar cálculo <span>→</span></a>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="icon">ΔV</span><span class="tag free">Freemium</span></div>
+            <h3>Circuitos y alimentadores</h3>
+            <p>Verifica caída de tensión, ampacidad y selección de conductores sin incluir transformador.</p>
+            <a href="#planes">Comenzar cálculo <span>→</span></a>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="icon">☀</span><span class="tag">Premium</span></div>
+            <h3>Cálculo fotovoltaico</h3>
+            <p>Dimensiona generación, strings, inversores, conductores y protecciones para sistemas solares.</p>
+            <a href="#planes">Abrir ficha <span>↗</span></a>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="icon">∿</span><span class="tag">Premium</span></div>
+            <h3>Armónicos y calidad de potencia</h3>
+            <p>Analiza distorsión, factor de potencia y comportamiento de cargas no lineales con reportes claros.</p>
+            <a href="#planes">Abrir ficha <span>↗</span></a>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="icon">▦</span><span class="tag">Premium</span></div>
+            <h3>Proyectos y presupuestos</h3>
+            <p>Centraliza resultados, cantidades y costos. Convierte los cálculos de todos los módulos en una propuesta organizada.</p>
+            <a href="#planes">Abrir ficha <span>↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="planes">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Planes</div>
+            <h2>Empieza con lo esencial.<br>Escala cuando lo necesites.</h2>
+          </div>
+          <p>Sin complejidad innecesaria: un acceso gratuito para cálculos cotidianos y todo el ecosistema profesional en Pro.</p>
+        </div>
+        <div class="price-grid">
+          <article class="price">
+            <div class="eyebrow">Plan gratuito</div>
+            <h3>Base</h3>
+            <div class="amount">$0 <small>/ siempre</small></div>
+            <p>Para estudiantes, técnicos y cálculos residenciales puntuales.</p>
+            <ul class="features">
+              <li>Cálculos residenciales básicos</li>
+              <li>Circuitos y caída de tensión</li>
+              <li>Proyectos guardados limitados</li>
+              <li>Resultados en pantalla</li>
+            </ul>
+            <a class="btn" href="#">Crear cuenta gratis</a>
+          </article>
+          <article class="price pro">
+            <div class="eyebrow">Plan profesional</div>
+            <h3>Pro</h3>
+            <div class="amount">A tu ritmo <small>/ mensual o anual</small></div>
+            <p>Para profesionales que diseñan, verifican y cotizan proyectos completos.</p>
+            <ul class="features">
+              <li>Todos los módulos sin límites</li>
+              <li>Transformadores, solar y armónicos</li>
+              <li>Presupuestos integrados</li>
+              <li>Reportes técnicos exportables</li>
+            </ul>
+            <a class="btn amber" href="#">Elegir Sparkcalc Pro →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap cta-in">
+        <div>
+          <h2>Menos hojas dispersas. Más ingeniería conectada.</h2>
+          <p>Inicia tu primer cálculo y lleva el proyecto hasta el presupuesto.</p>
+        </div>
+        <a class="btn" href="#herramientas">Explorar herramientas →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="soporte">
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="brand" href="#inicio"><span class="mark" aria-hidden="true">ϟ</span><span>SPARKCALC</span></a>
+          <p>Herramientas digitales para diseñar con criterio, documentar con claridad y ejecutar con confianza.</p>
+        </div>
+        <div>
+          <h4>Plataforma</h4>
+          <a href="#herramientas">Herramientas</a>
+          <a href="#planes">Planes</a>
+          <a href="#">Centro de ayuda</a>
+        </div>
+        <div>
+          <h4>Normativa</h4>
+          <a href="#">RETIE y NTC 2050</a>
+          <a href="#">IEC / IEEE</a>
+          <a href="#">Criterios de cálculo</a>
+        </div>
+        <div>
+          <h4>Legal y contacto</h4>
+          <a href="#">Términos de uso</a>
+          <a href="#">Privacidad</a>
+          <a href="mailto:soporte@sparkcalc.co">soporte@sparkcalc.co</a>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© 2026 Sparkcalc. Todos los derechos reservados.</span>
+        <span>Los resultados deben ser validados por un profesional competente.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
