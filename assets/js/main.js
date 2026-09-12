@@ -6,6 +6,7 @@ const voltageInput = document.getElementById("voltage");
 const resistanceInput = document.getElementById("resistance");
 const currentOutput = document.getElementById("current");
 
+if (panel && backdrop && openButton && closeButton) {
 function setPanel(open) {
   panel.classList.toggle("open", open);
   backdrop.classList.toggle("open", open);
@@ -36,6 +37,9 @@ document.addEventListener("keydown", (event) => {
     setPanel(false);
   }
 });
+}
 
-voltageInput.addEventListener("input", calculateCurrent);
-resistanceInput.addEventListener("input", calculateCurrent);
+if (voltageInput && resistanceInput && currentOutput) {
+  voltageInput.addEventListener("input", calculateCurrent);
+  resistanceInput.addEventListener("input", calculateCurrent);
+}
