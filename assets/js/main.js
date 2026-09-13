@@ -43,3 +43,22 @@ if (voltageInput && resistanceInput && currentOutput) {
   voltageInput.addEventListener("input", calculateCurrent);
   resistanceInput.addEventListener("input", calculateCurrent);
 }
+
+document.querySelectorAll("a[href]").forEach((link) => {
+  const url = new URL(link.href, window.location.href);
+  const isSamePageHash = url.pathname === window.location.pathname && url.hash;
+  const isLocalPage = url.origin === window.location.origin && !isSamePageHash;
+  const opensNewContext = link.target === "_blank" || link.hasAttribute("download");
+
+  if (!isLocalPage || opensNewContext || url.protocol === "mailto:") return;
+
+  link.addEventListener("click", (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    event.preventDefault();
+    document.body.classList.add("page-exit");
+    window.setTimeout(() => {
+      window.location.href = link.href;
+    }, 170);
+  });
+});

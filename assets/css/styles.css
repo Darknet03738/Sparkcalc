@@ -19,7 +19,11 @@ body {
   background: var(--bg);
   color: var(--text);
   font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  opacity: 0;
+  animation: pageIn .42s ease-out forwards;
 }
+
+body.page-exit { animation: pageOut .18s ease-in forwards; }
 
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
@@ -83,10 +87,11 @@ button, input { font: inherit; }
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;
-  transition: .2s;
+  transition: transform .2s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
 }
 
-.btn:hover { border-color: #5b839d; transform: translateY(-1px); }
+.btn:hover { border-color: #5b839d; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0, 0, 0, .18); }
+.btn:active { transform: translateY(0); }
 .btn.primary { border-color: var(--blue); background: var(--blue); color: #00131f; box-shadow: 0 0 26px rgba(39, 169, 255, .18); }
 .btn.amber { border-color: var(--amber); background: var(--amber); color: #241600; }
 
@@ -113,6 +118,8 @@ button, input { font: inherit; }
 }
 
 .hero-grid { display: grid; align-items: center; gap: 68px; grid-template-columns: 1.1fr .9fr; }
+.hero-grid > *, .page-hero .wrap { animation: riseIn .58s ease-out both; }
+.hero-grid > *:nth-child(2) { animation-delay: .08s; }
 .hero h1 { max-width: 800px; margin: 18px 0 24px; font-size: clamp(42px, 6vw, 72px); letter-spacing: -.055em; line-height: 1.04; }
 .hero h1 span { color: var(--blue); }
 .lead { max-width: 650px; margin: 0 0 34px; color: #afc2cd; font-size: 19px; }
@@ -128,7 +135,10 @@ button, input { font: inherit; }
   border-radius: 10px;
   background: linear-gradient(145deg, #0d1b26, #09131b);
   box-shadow: 0 30px 70px rgba(0, 0, 0, .32);
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
 }
+
+.diagram:hover { border-color: #3b7494; transform: translateY(-5px); box-shadow: 0 34px 80px rgba(0, 0, 0, .38); }
 
 .diagram::before {
   color: #6d8798;
@@ -197,10 +207,16 @@ section { padding: 92px 0; }
   border: 1px solid var(--line);
   border-radius: 8px;
   background: linear-gradient(150deg, var(--panel-strong), var(--panel));
-  transition: .22s;
+  animation: riseIn .52s ease-out both;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
 }
 
-.card:hover { border-color: #376078; transform: translateY(-4px); }
+.card:hover { border-color: #376078; transform: translateY(-6px); box-shadow: 0 22px 48px rgba(0, 0, 0, .22); }
+.card:nth-child(2), .module-item:nth-child(2), .step:nth-child(2) { animation-delay: .06s; }
+.card:nth-child(3), .module-item:nth-child(3), .step:nth-child(3) { animation-delay: .12s; }
+.card:nth-child(4), .module-item:nth-child(4) { animation-delay: .18s; }
+.card:nth-child(5) { animation-delay: .24s; }
+.card:nth-child(6) { animation-delay: .3s; }
 .card-top { display: flex; align-items: center; justify-content: space-between; }
 .icon { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid #36586d; border-radius: 6px; color: var(--blue); font: 20px ui-monospace, SFMono-Regular, Consolas, monospace; }
 .tag { padding: 5px 8px; border-radius: 3px; background: var(--amber); color: #05121a; font: 700 10px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .1em; text-transform: uppercase; }
@@ -254,7 +270,10 @@ footer { padding: 58px 0 30px; background: #050c12; }
   box-shadow: 0 14px 38px rgba(0, 0, 0, .42);
   cursor: pointer;
   font-weight: 800;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
+
+.quick-trigger:hover { transform: translateY(-3px); box-shadow: 0 18px 46px rgba(0, 0, 0, .5); }
 
 .quick-trigger .bolt { font-size: 20px; }
 .quick-panel { position: fixed; inset: 0 0 0 auto; z-index: 50; width: min(430px, 100%); overflow: auto; padding: 24px; border-left: 1px solid #31556a; background: #08131c; box-shadow: -24px 0 70px rgba(0, 0, 0, .55); transform: translateX(105%); transition: transform .25s ease; }
@@ -302,7 +321,10 @@ footer { padding: 58px 0 30px; background: #050c12; }
   background: #ffffff;
   color: #13232d;
   box-shadow: 0 18px 45px rgba(22, 44, 58, .08);
+  animation: riseIn .5s ease-out both;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
+.panel:hover { border-color: #c2d3dc; transform: translateY(-3px); box-shadow: 0 22px 52px rgba(22, 44, 58, .11); }
 .panel h2, .panel h3 { margin-top: 0; letter-spacing: -.025em; line-height: 1.2; }
 .panel h2, .panel h3 { color: #0f2532; }
 .panel p { color: #344f60; }
@@ -318,7 +340,10 @@ footer { padding: 58px 0 30px; background: #050c12; }
   background: #ffffff;
   color: #13232d;
   box-shadow: 0 14px 34px rgba(22, 44, 58, .07);
+  animation: riseIn .5s ease-out both;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
+.module-item:hover { border-color: #b9ced9; transform: translateY(-3px); box-shadow: 0 18px 42px rgba(22, 44, 58, .1); }
 .module-item p { margin: 4px 0 0; color: #344f60; font-size: 14px; }
 .module-item h3 { margin: 0; color: #0f2532; font-size: 18px; }
 .page-section .btn:not(.primary):not(.amber), .auth-card .btn:not(.primary):not(.amber) {
@@ -394,6 +419,7 @@ footer { padding: 58px 0 30px; background: #050c12; }
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 0 24px 70px rgba(22, 44, 58, .12);
+  animation: riseIn .5s ease-out both;
 }
 .auth-card h1 { margin: 12px 0 8px; font-size: 34px; letter-spacing: -.04em; line-height: 1.08; }
 .auth-card p { margin: 0 0 22px; color: #344f60; }
@@ -412,6 +438,31 @@ footer { padding: 58px 0 30px; background: #050c12; }
 .page-main .price > p, .page-main .features li { color: #344f60; }
 .page-main .amount small { color: #405b6b; }
 .page-main .features { border-top-color: #d8e2e8; }
+
+@keyframes pageIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pageOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
 
 @media (max-width: 900px) {
   .links { display: none; }
