@@ -210,7 +210,10 @@ function _setPeriodCore(y,mode,btn){
   const rangeEl=$(isQ?'q-period-range':'l-period-range');
   const labelEl=$(isQ?'q-period-label':'l-period-label');
   const scopeSel=isQ?'#quick-wrap':'#loads-wrap';
-  if(rangeEl) rangeEl.value=y;
+  if(rangeEl) {
+    rangeEl.value=y;
+    updateRange(rangeEl);
+  }
   if(labelEl) labelEl.textContent=y+' años';
   document.querySelectorAll(scopeSel+' .period-btn').forEach(b=>b.classList.remove('active'));
   if(btn) btn.classList.add('active');
@@ -539,6 +542,7 @@ function showResults(r,{estrato,fpVal,fpPenalty,years,label}){
 
   // Period control sync
   $('res-period').value=years;
+  updateRange($('res-period'));
   $('res-period-label').textContent=years+' años';
   document.querySelectorAll('.period-control .pb').forEach(b=>{
     b.classList.toggle('act', parseInt(b.textContent)===years);
@@ -578,11 +582,13 @@ function setResYears(y,btn){
   document.querySelectorAll('.period-control .pb').forEach(b=>b.classList.remove('act'));
   btn.classList.add('act');
   $('res-period').value=y;
+  updateRange($('res-period'));
   $('res-period-label').textContent=y+' años';
   rerunWithYears(y);
 }
 function setResYearsRange(v){
   $('res-period-label').textContent=v+' años';
+  updateRange($('res-period'));
   document.querySelectorAll('.period-control .pb').forEach(b=>b.classList.remove('act'));
   rerunWithYears(parseInt(v));
 }

@@ -34,10 +34,10 @@
 </section>
 
 <div class="tabs">
-  <button class="tab-btn active" data-num="01" data-tab="0">Ingreso de Datos</button>
-  <button class="tab-btn" data-num="02" data-tab="1">Armónicos Individuales</button>
-  <button class="tab-btn" data-num="03" data-tab="2">Suma de Fourier</button>
-  <button class="tab-btn" data-num="04" data-tab="3">Calidad de Energía</button>
+  <button class="tab-btn active" data-num="01" data-tab="0" title="Abrir ingreso de datos" aria-label="Abrir ingreso de datos">Ingreso de Datos</button>
+  <button class="tab-btn" data-num="02" data-tab="1" title="Abrir armónicos individuales" aria-label="Abrir armónicos individuales">Armónicos Individuales</button>
+  <button class="tab-btn" data-num="03" data-tab="2" title="Abrir suma de Fourier" aria-label="Abrir suma de Fourier">Suma de Fourier</button>
+  <button class="tab-btn" data-num="04" data-tab="3" title="Abrir calidad de energía" aria-label="Abrir calidad de energía">Calidad de Energía</button>
 </div>
 
 <main>
@@ -52,24 +52,24 @@
       <div class="grid-2">
         <div>
           <label>Frecuencia f₁ (Hz)</label>
-          <input type="number" id="p_f1" value="60" step="1">
+          <input type="number" id="p_f1" value="60" step="1" title="Frecuencia fundamental en hertz" aria-label="Frecuencia fundamental en hertz" placeholder="60">
         </div>
         <div>
           <label>Resolución (pts/ciclo)</label>
-          <input type="number" id="p_res" value="3600" step="100" min="360" max="72000">
+          <input type="number" id="p_res" value="3600" step="100" min="360" max="72000" title="Resolucion de muestreo en puntos por ciclo" aria-label="Resolucion de muestreo en puntos por ciclo" placeholder="3600">
         </div>
         <div>
           <label>Tipo de dato a ingresar</label>
           <div class="toggle-group qe-inline-002" id="inputTypeToggle">
-            <button class="active" data-val="voltage">⚡ Tensión</button>
-            <button data-val="current">🔌 Corriente</button>
+            <button class="active" data-val="voltage" title="Seleccionar tension" aria-label="Seleccionar tension">⚡ Tensión</button>
+            <button data-val="current" title="Seleccionar corriente" aria-label="Seleccionar corriente">🔌 Corriente</button>
           </div>
         </div>
         <div>
           <label>Valores ingresados como</label>
           <div class="toggle-group qe-inline-003" id="amplitudeTypeToggle">
-            <button class="active" data-val="rms">RMS</button>
-            <button data-val="peak">PICO</button>
+            <button class="active" data-val="rms" title="Ingresar valores RMS" aria-label="Ingresar valores RMS">RMS</button>
+            <button data-val="peak" title="Ingresar valores pico" aria-label="Ingresar valores pico">PICO</button>
           </div>
           <div class="info-hint" id="ampTypeHint">Los valores se interpretan como <b>RMS</b>.</div>
         </div>
@@ -82,7 +82,7 @@
       </div>
       <div class="qe-inline-005">
         <label>Nivel de tensión del sistema <span class="auto-badge" id="autoDetectBadge">AUTO-DETECTADO</span></label>
-        <select id="voltageLevel">
+        <select id="voltageLevel" title="Nivel de tension del sistema para aplicar limites normativos" aria-label="Nivel de tension del sistema para aplicar limites normativos">
           <option value="bt">BT: Vn ≤ 1 kV (ej: 120V, 208V, 440V)</option>
           <option value="mt1" selected>MT: 1 kV &lt; Vn ≤ 69 kV (ej: 13.2kV, 34.5kV)</option>
           <option value="mt2">AT: 69 kV &lt; Vn ≤ 161 kV (ej: 110kV, 115kV)</option>
@@ -90,28 +90,28 @@
         </select>
         <div class="info-hint">Se auto-detecta a partir de la tensión fundamental V₁ ingresada. Puedes cambiarlo manualmente.</div>
       </div>
-      <input type="hidden" id="iscIl" value="20">
+      <input type="hidden" id="iscIl" value="20" title="Relacion Isc sobre IL calculada para la Tabla 5" aria-label="Relacion Isc sobre IL calculada para la Tabla 5">
       <div class="grid-3" id="ntcParamsGrid">
         <div>
           <label>
             Rango Isc/IL (Tabla 5)
             <span class="auto-badge" id="autoIscIlBadge">AUTO-CALCULADO</span>
           </label>
-          <select id="iscIlSelect"></select>
+          <select id="iscIlSelect" title="Rango Isc sobre IL segun Tabla 5 NTC 5001" aria-label="Rango Isc sobre IL segun Tabla 5 NTC 5001"></select>
           <div class="info-hint" id="iscIlCalcHint">Isc/IL calculado: <b id="iscIlCalcVal">20</b> — se selecciona la fila correspondiente de la Tabla 5.</div>
         </div>
         <div>
           <label>IL (A) <span class="qe-inline-006">— valor medido en campo</span></label>
-          <input type="number" id="ilValue" value="100" step="0.1" min="0">
+          <input type="number" id="ilValue" value="100" step="0.1" min="0" title="Corriente de demanda maxima IL en amperios" aria-label="Corriente de demanda maxima IL en amperios" placeholder="100">
           <div class="info-hint">Corriente de demanda máxima en PCC. <b>Es el denominador del TDD.</b> Debe medirse con analizador o amperímetro de gancho — no se puede calcular.</div>
         </div>
         <div>
           <label>
             Isc (A) <span class="auto-badge" id="autoIscBadge">MANUAL</span>
           </label>
-          <input type="number" id="iscValue" value="2000" step="1" min="0">
+          <input type="number" id="iscValue" value="2000" step="1" min="0" title="Corriente de cortocircuito Isc en amperios" aria-label="Corriente de cortocircuito Isc en amperios" placeholder="2000">
           <div class="info-hint">Corriente de cortocircuito trifásica mínima en PCC.</div>
-          <button class="btn btn-sm qe-inline-007" id="btnToggleTrafo">
+          <button class="btn btn-sm qe-inline-007" id="btnToggleTrafo" title="Abrir o cerrar calculador de Isc desde transformador" aria-label="Abrir o cerrar calculador de Isc desde transformador">
             ⚙ Calcular desde datos del transformador
           </button>
         </div>
@@ -128,22 +128,22 @@
         <div class="grid-3 qe-inline-011">
           <div>
             <label>S_trafo (kVA)</label>
-            <input type="number" id="trafoKVA" value="500" step="1" min="1">
+            <input type="number" id="trafoKVA" value="500" step="1" min="1" title="Potencia nominal del transformador en kVA" aria-label="Potencia nominal del transformador en kVA" placeholder="500">
             <div class="info-hint">Potencia nominal del transformador.</div>
           </div>
           <div>
             <label>Vn secundario (V)</label>
-            <input type="number" id="trafoVn" value="440" step="1" min="1">
+            <input type="number" id="trafoVn" value="440" step="1" min="1" title="Tension nominal secundaria del transformador en voltios" aria-label="Tension nominal secundaria del transformador en voltios" placeholder="440">
             <div class="info-hint">Tensión nominal en el secundario (lado donde se mide el PCC).</div>
           </div>
           <div>
             <label>Zcc (%)</label>
-            <input type="number" id="trafoZcc" value="5.75" step="0.01" min="0.1" max="20">
+            <input type="number" id="trafoZcc" value="5.75" step="0.01" min="0.1" max="20" title="Impedancia de cortocircuito del transformador en porcentaje" aria-label="Impedancia de cortocircuito del transformador en porcentaje" placeholder="5.75">
             <div class="info-hint">Impedancia de cortocircuito del trafo (placa de características). Típico: 4–6%.</div>
           </div>
         </div>
         <div class="qe-inline-012">
-          <button class="btn btn-sm btn-primary" id="btnCalcIsc">▶ Calcular Isc</button>
+          <button class="btn btn-sm btn-primary" id="btnCalcIsc" title="Calcular corriente de cortocircuito Isc" aria-label="Calcular corriente de cortocircuito Isc">▶ Calcular Isc</button>
           <div class="qe-inline-013" id="iscCalcResult">—</div>
         </div>
       </div>
@@ -161,8 +161,8 @@
         Amplitudes de los 40 Armónicos <span class="pill" id="inputModePill">TENSIÓN</span> <span class="pill qe-inline-018" id="ampModePill">RMS</span>
       </div>
       <div class="qe-inline-019">
-        <button class="btn btn-sm btn-accent" id="btnClear">Limpiar todo</button>
-        <button class="btn btn-sm btn-primary" id="btnCalc">▶ Calcular</button>
+        <button class="btn btn-sm btn-accent" id="btnClear" title="Limpiar todos los valores de armonicos" aria-label="Limpiar todos los valores de armonicos">Limpiar todo</button>
+        <button class="btn btn-sm btn-primary" id="btnCalc" title="Calcular indicadores de calidad de energia" aria-label="Calcular indicadores de calidad de energia">▶ Calcular</button>
       </div>
     </div>
 
@@ -193,13 +193,13 @@
           <div>
             <label class="qe-inline-022">Tipo de señal:</label>
             <div class="toggle-group" id="harmSignalToggle">
-              <button class="active" data-val="voltage">Tensión (V)</button>
-              <button data-val="current">Corriente (A)</button>
+              <button class="active" data-val="voltage" title="Seleccionar tension" aria-label="Seleccionar tension">Tensión (V)</button>
+              <button data-val="current" title="Seleccionar corriente" aria-label="Seleccionar corriente">Corriente (A)</button>
             </div>
           </div>
           <div>
             <label class="qe-inline-023">Ciclos de onda:</label>
-            <input class="qe-inline-024" type="number" id="harmCycles" value="2" min="1" max="10">
+            <input class="qe-inline-024" type="number" id="harmCycles" value="2" min="1" max="10" title="Cantidad de ciclos visibles en la grafica de armonicos" aria-label="Cantidad de ciclos visibles en la grafica de armonicos" placeholder="2">
           </div>
         </div>
         <div class="qe-inline-025">Seleccionar armónicos a superponer:</div>
@@ -223,20 +223,20 @@
           <div>
             <label class="qe-inline-030">Tipo de señal:</label>
             <div class="toggle-group" id="fourierSignalToggle">
-              <button class="active" data-val="voltage">Tensión (V)</button>
-              <button data-val="current">Corriente (A)</button>
+              <button class="active" data-val="voltage" title="Seleccionar tension" aria-label="Seleccionar tension">Tensión (V)</button>
+              <button data-val="current" title="Seleccionar corriente" aria-label="Seleccionar corriente">Corriente (A)</button>
             </div>
           </div>
           <div>
             <label class="qe-inline-031">Ciclos de onda:</label>
-            <input class="qe-inline-032" type="number" id="fourierCycles" value="2" min="1" max="10">
+            <input class="qe-inline-032" type="number" id="fourierCycles" value="2" min="1" max="10" title="Cantidad de ciclos visibles en la grafica de Fourier" aria-label="Cantidad de ciclos visibles en la grafica de Fourier" placeholder="2">
           </div>
           <div>
             <label class="qe-inline-033">Mostrar:</label>
             <div class="toggle-group" id="fourierShowToggle">
-              <button class="active" data-val="both">Ambas</button>
-              <button data-val="fund">Solo Fund.</button>
-              <button data-val="fourier">Solo Fourier</button>
+              <button class="active" data-val="both" title="Mostrar fundamental y Fourier" aria-label="Mostrar fundamental y Fourier">Ambas</button>
+              <button data-val="fund" title="Mostrar solo fundamental" aria-label="Mostrar solo fundamental">Solo Fund.</button>
+              <button data-val="fourier" title="Mostrar solo Fourier" aria-label="Mostrar solo Fourier">Solo Fourier</button>
             </div>
           </div>
           <div class="qe-inline-034">
@@ -453,7 +453,7 @@
 
     <!-- ── Tipo de entrada + Ejemplo ── -->
     <div class="qe-inline-083">
-      <button class="btn btn-sm qe-inline-084" id="btnNeutralExample" >
+      <button class="btn btn-sm qe-inline-084" id="btnNeutralExample"  title="Cargar ejemplo de corriente de neutro por armonicos triplen" aria-label="Cargar ejemplo de corriente de neutro por armonicos triplen">
         📋 Cargar Ejemplo del Tablero
       </button>
       <div class="qe-inline-085" id="neutralInputNote">

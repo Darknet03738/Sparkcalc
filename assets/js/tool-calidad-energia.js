@@ -378,7 +378,7 @@ function buildHarmTable() {
     tr.innerHTML = `
       <td class="harm-num" ${style}>${n}${isFund?' ★':''}</td>
       <td style="font-family:var(--mono);color:var(--text2)">${(n*f1).toFixed(1)}</td>
-      <td class="input-cell"><input type="number" id="hinp_${n}" value="${arr[n]}" step="0.01" min="0" data-hnum="${n}" style="width:100px"></td>
+      <td class="input-cell"><input class="harmonic-input" type="number" id="hinp_${n}" value="${arr[n]}" step="0.01" min="0" data-hnum="${n}" title="Amplitud del armonico H${n}" aria-label="Amplitud del armonico H${n}" placeholder="0.00"></td>
       <td style="font-family:var(--mono);${convColor}" id="hconv_${n}">${convVal.toFixed(3)}</td>
       <td id="hdh_${n}"><span class="thd-badge ${badgeCls}">${isFund?'FUND':dH.toFixed(2)+'%'}</span></td>
     `;

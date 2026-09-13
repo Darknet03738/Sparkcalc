@@ -255,7 +255,7 @@ footer strong{color:var(--az)}
 .sec-heading h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--az);margin-bottom:.5rem;line-height:1.25}
 .sec-heading p{color:#7F8C8D;font-size:.95rem;max-width:520px;margin:0 auto}
 .sec-badge{display:inline-block;background:var(--azc);color:var(--az);font-size:.72rem;font-weight:700;padding:.25rem .85rem;border-radius:20px;margin-bottom:.75rem;letter-spacing:.6px;text-transform:uppercase}
-.portfolio-showcase{background:#f4f7f9;padding-top:1rem}
+.info-showcase{background:#f4f7f9;padding-top:1rem}
 
 /* ══ SECCIÓN 1 · PROCESO ════════════════════════════ */
 .sec-proceso{max-width:1140px;margin:3rem auto;padding:0 1.5rem}
@@ -288,6 +288,7 @@ footer strong{color:var(--az)}
 .sec-soluciones .sec-heading p{color:rgba(255,255,255,.72)}
 .sec-soluciones .sec-badge{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)}
 .sol-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:1140px;margin:0 auto}
+.sol-grid .sol-card:nth-child(3):last-child{grid-column:1/-1;justify-self:center;width:min(100%,calc((1140px - 1.5rem)/2))}
 .sol-card{
   background:rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.1);
@@ -308,14 +309,17 @@ footer strong{color:var(--az)}
 .sol-tag.off{background:rgba(230,126,34,.22);color:#FFD08A;border:1px solid rgba(230,126,34,.3)}
 .sol-tag.con{background:rgba(142,68,173,.22);color:#D7AEFF;border:1px solid rgba(142,68,173,.3)}
 .sol-card p{font-size:.81rem;color:rgba(255,255,255,.68);line-height:1.65;flex:1;margin-bottom:1.5rem}
-.sol-btn{
-  display:block;width:100%;padding:.68rem 1rem;
-  border-radius:9px;border:1.5px solid rgba(255,255,255,.3);
-  background:transparent;color:#fff;font-family:var(--font);
-  font-size:.84rem;font-weight:700;cursor:pointer;text-align:center;
-  transition:background .2s,border-color .2s,transform .15s;letter-spacing:.15px
+.sol-note{
+  display:inline-flex;
+  width:fit-content;
+  margin-top:auto;
+  color:rgba(255,255,255,.52);
+  font-family:var(--font);
+  font-size:.74rem;
+  font-weight:600;
+  letter-spacing:.2px;
+  text-transform:uppercase
 }
-.sol-btn:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.65);transform:scale(1.02)}
 
 /* ══ SECCIÓN 3 · CTA + FAQ ══════════════════════════ */
 .sec-cta-faq{max-width:1140px;margin:0 auto;padding:4rem 1.5rem 3rem}
@@ -385,6 +389,7 @@ footer strong{color:var(--az)}
   .tl-num{width:58px;height:58px;flex-shrink:0;margin-bottom:0;margin-right:1rem}
   .tl-num svg{width:21px;height:21px}
   .sol-grid{grid-template-columns:1fr}
+  .sol-grid .sol-card:nth-child(3):last-child{grid-column:auto;width:100%}
   .cta-hero{text-align:center;justify-content:center;padding:2rem 1.5rem}
   .cta-hero-text p{margin:0 auto .8rem}
 }
@@ -460,33 +465,6 @@ footer strong{color:var(--az)}
 .eco-card.km  .eco-num{color:#1F4E79}
 .eco-unit{font-size:.69rem;font-weight:700;color:#95A5A6;text-transform:uppercase;letter-spacing:.8px;margin-bottom:.75rem}
 .eco-desc{font-size:.82rem;color:#5D6D7E;line-height:1.62}
-
-/* ══ S·ALIADOS · TECNOLOGÍA GLOBAL ══════════════════ */
-.sec-aliados{background:#fff;padding:3.5rem 1.5rem;border-top:1px solid #EEF2F7;border-bottom:1px solid #EEF2F7}
-.aliados-inner{max-width:1020px;margin:0 auto}
-.aliados-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:2rem;align-items:stretch}
-.aliado{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:.3rem;padding:1rem .6rem;border-radius:12px;border:1.5px solid #E8EDF3;
-  min-height:90px;filter:grayscale(1);opacity:.4;cursor:default;
-  transition:filter .32s ease,opacity .32s,transform .25s,box-shadow .25s,border-color .3s,background .3s
-}
-.aliado:hover{filter:grayscale(0);opacity:1;transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
-.aliado svg{width:22px;height:22px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.al-name{font-size:.72rem;font-weight:800;letter-spacing:.3px;line-height:1.2;text-align:center}
-.al-cat{font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#95A5A6}
-.al-huawei:hover{background:#FEF5F5;border-color:#F5B7B1}
-.al-fronius:hover{background:#FFF7F2;border-color:#FAD7A0}
-.al-jinko:hover{background:#EBF5FB;border-color:#AED6F1}
-.al-longi:hover{background:#FFF5EE;border-color:#F9C883}
-.al-schneider:hover{background:#EAFAF1;border-color:#A9DFBF}
-.al-abb:hover{background:#FEF5F5;border-color:#F5B7B1}
-.al-huawei   svg,.al-huawei   .al-name{stroke:#CC0000;color:#CC0000}
-.al-fronius  svg,.al-fronius  .al-name{stroke:#E84A0C;color:#E84A0C}
-.al-jinko    svg,.al-jinko    .al-name{stroke:#0062AC;color:#0062AC}
-.al-longi    svg,.al-longi    .al-name{stroke:#EF6C00;color:#EF6C00}
-.al-schneider svg,.al-schneider .al-name{stroke:#3DCD58;color:#3DCD58}
-.al-abb      svg,.al-abb      .al-name{stroke:#D50000;color:#D50000}
 
 /* ══ S·GARANTÍAS ════════════════════════════════════ */
 .sec-garantias{background:#F0F4F8;padding:4rem 1.5rem}
@@ -571,12 +549,10 @@ footer strong{color:var(--az)}
 @media(max-width:920px){
   .eco-impact-grid{grid-template-columns:repeat(2,1fr)}
   .garantias-grid{grid-template-columns:repeat(2,1fr)}
-  .aliados-row{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:640px){
   .eco-impact-grid{grid-template-columns:1fr}
   .garantias-grid{grid-template-columns:1fr}
-  .aliados-row{grid-template-columns:repeat(2,1fr)}
   .fin-card{padding:1.5rem 1.2rem}
   .fin-features{grid-template-columns:1fr}
   .fin-header{gap:.8rem}
@@ -1241,3 +1217,54 @@ input[type=range]::-moz-range-thumb{
 .fv-inline-059{margin-bottom:0;}
 .fv-inline-060{font-size:clamp(1.1rem,2.5vw,1.5rem);}
 .fv-inline-061{font-size:.88rem;}
+
+.solar-tool .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.solar-tool .hero::after {
+  display: none;
+}
+
+.solar-tool .hero h1,
+.solar-tool .hero p,
+.solar-tool .hero-badges {
+  width: min(100%, 760px);
+}
+
+.solar-tool .hero-badges {
+  align-items: center;
+  justify-content: center;
+}
+
+.period-options,
+.period-control .period-btns {
+  align-items: center;
+}
+
+.period-btn,
+.period-control .pb {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  border-radius: 999px !important;
+  background-clip: padding-box;
+  line-height: 1;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.period-btn.active,
+.period-control .pb.act {
+  background: #071018 !important;
+  color: #fff !important;
+  border-color: #071018 !important;
+  box-shadow: 0 6px 16px rgba(7, 16, 24, .18);
+}
