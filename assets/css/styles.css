@@ -46,13 +46,24 @@ button, input { font: inherit; }
 
 .mark {
   display: grid;
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   place-items: center;
   border: 1px solid #397d9e;
-  background: #0b2230;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #071018;
   color: var(--amber);
-  clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);
+  padding: 0;
+}
+
+.mark img {
+  width: 54px;
+  height: 54px;
+  max-width: none;
+  object-fit: cover;
+  object-position: 27% 50%;
+  transform: translateY(-8px);
 }
 
 .links { display: flex; gap: 28px; margin-left: auto; color: #b7c8d2; font-size: 14px; }
