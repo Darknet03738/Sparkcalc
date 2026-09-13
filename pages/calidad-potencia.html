@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Analisis de armonicos y neutro - Sparkcalc</title>
+<title>Calidad de Energ&iacute;a - Sparkcalc</title>
 <link rel="icon" href="../assets/img/logos.jpg">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -16,13 +16,13 @@
   --accent:     #ffb629;
   --accent2:    #FF4136;
   --accent3:    #0074D9;
-  --bg:         #071018;
-  --bg2:        #09141d;
-  --bg3:        #0d1923;
-  --panel:      #0d1923;
-  --border:     #203342;
-  --text:       #e8f5ee;
-  --text2:      #96aab7;
+  --bg:         #f4f7f9;
+  --bg2:        #eaf2f6;
+  --bg3:        #f8fbfd;
+  --panel:      #ffffff;
+  --border:     #d8e2e8;
+  --text:       #13232d;
+  --text2:      #526776;
   --mono:       'Share Tech Mono', monospace;
   --head:       'Barlow Condensed', sans-serif;
   --body:       'Barlow', sans-serif;
@@ -437,6 +437,10 @@ footer span { color: var(--sena); }
 .spark-home-link{display:inline-flex;align-items:center;gap:.55rem;color:#fff;text-decoration:none;font-weight:800;letter-spacing:.02em}.spark-home-logo{width:42px;height:42px;border:1px solid rgba(39,169,255,.55);border-radius:8px;object-fit:cover;object-position:27% 50%;transform:translateY(-6px);background:#071018}.spark-back{color:#b7c8d2;text-decoration:none;font-weight:700}.spark-back:hover{color:#fff}
 
 .spark-site-footer{padding:58px 0 30px!important;background:#050c12!important;color:#8197a4!important;text-align:left!important;font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}.spark-footer-wrap{width:min(1180px,calc(100% - 40px));margin:auto}.spark-footer-grid{display:grid;gap:50px;grid-template-columns:1.5fr repeat(3,1fr)}.spark-footer-brand{display:flex!important;align-items:center;gap:11px;color:#eef6fa!important;text-decoration:none!important;font-weight:780;letter-spacing:-.02em;margin-bottom:12px}.spark-footer-brand img{width:42px;height:42px;border:1px solid #397d9e;border-radius:8px;object-fit:cover;object-position:27% 50%;transform:translateY(-6px);background:#071018}.spark-site-footer p,.spark-site-footer a{color:#8197a4!important;font-size:14px;text-decoration:none}.spark-site-footer h4{margin:0 0 14px;color:#eef6fa;font-size:16px}.spark-site-footer a{display:block;margin:9px 0}.spark-site-footer a:hover{color:#fff!important}.spark-advisor{margin-top:12px;color:#b7c8d2!important}.spark-footer-legal{display:flex;justify-content:space-between;gap:24px;margin-top:42px;padding-top:22px;border-top:1px solid #172632;color:#607987;font-size:12px}.spark-footer-legal span{color:#607987!important}@media(max-width:900px){.spark-footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.spark-footer-grid{grid-template-columns:1fr}.spark-footer-legal{display:block}.spark-footer-legal span{display:block;margin-top:8px}}
+
+.site-header{position:sticky!important;top:0!important;z-index:500!important;border-bottom:1px solid rgba(69,101,122,.35)!important;background:rgba(7,16,24,.92)!important;backdrop-filter:blur(16px)!important;box-shadow:none!important;padding:0!important;height:auto!important;display:block!important;color:#eef6fa!important}.site-header .wrap{width:min(1180px,calc(100% - 40px));margin:auto}.site-header .nav{display:flex;height:72px;align-items:center;gap:34px}.site-header .brand{display:flex;align-items:center;gap:11px;color:#eef6fa!important;text-decoration:none!important;font-weight:780;letter-spacing:-.02em}.site-header .mark{display:grid;width:48px;height:48px;place-items:center;border:1px solid #397d9e;border-radius:8px;overflow:hidden;background:#071018}.site-header .mark img{width:54px;height:54px;max-width:none;object-fit:cover;object-position:27% 50%;transform:translateY(-8px)}.site-header .links{display:flex;gap:28px;margin-left:auto;color:#b7c8d2;font-size:14px}.site-header .links a{color:inherit;text-decoration:none}.site-header .links a:hover{color:#fff}.site-header .actions{display:flex;gap:10px}.site-header .btn{display:inline-flex;min-height:42px;align-items:center;justify-content:center;padding:0 18px;border:1px solid #365063;border-radius:6px;background:transparent;color:#eaf4f8!important;cursor:pointer;font-size:14px;font-weight:700;text-decoration:none!important;transition:transform .2s ease,border-color .2s ease,background-color .2s ease,box-shadow .2s ease}.site-header .btn:hover{border-color:#5b839d;transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.18)}.site-header .btn.primary{border-color:#27a9ff;background:#27a9ff;color:#00131f!important;box-shadow:0 0 26px rgba(39,169,255,.18)}@media(max-width:900px){.site-header .links{display:none}.site-header .actions .btn:first-child{display:none}}@media(max-width:620px){.site-header .wrap{width:min(100% - 28px,1180px)}.site-header .nav{height:64px}.site-header .actions{margin-left:auto}.site-header .actions .btn{padding:0 12px}}
+
+body::before{display:none!important}.tool-hero{position:relative;z-index:6;padding:74px 0 46px;border-bottom:1px solid #203342;color:#eef6fa;background:linear-gradient(90deg,rgba(39,169,255,.13),transparent 42%),linear-gradient(rgba(41,79,102,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(41,79,102,.1) 1px,transparent 1px),#09141d;background-size:auto,44px 44px,44px 44px}.tool-hero-wrap{width:min(1180px,calc(100% - 40px));margin:auto}.tool-eyebrow{color:#27a9ff;font:700 12px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase}.tool-hero h1{max-width:780px;margin:12px 0 16px;color:#eef6fa;font:800 clamp(36px,5vw,58px)/1.05 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:-.03em}.tool-hero p{max-width:760px;margin:0;color:#abc0cc;font:18px/1.6 Inter,ui-sans-serif,system-ui,sans-serif}.tool-standards{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.tool-standards span{border:1px solid rgba(39,169,255,.45);border-radius:999px;background:rgba(39,169,255,.1);color:#d7edf7;padding:7px 11px;font:700 12px/1 ui-monospace,SFMono-Regular,Consolas,monospace}.tabs{background:#09141d!important;border-bottom:1px solid #203342!important}.tab-btn{color:#96aab7!important}.tab-btn:hover{color:#fff!important;background:rgba(39,169,255,.12)!important}.tab-btn.active{color:#ffb629!important;border-bottom-color:#ffb629!important;background:rgba(255,182,41,.08)!important}main{background:#f4f7f9!important}.card,.metric,.mcard,.chart-card,.norm-table,.neutral-card{box-shadow:0 18px 45px rgba(22,44,58,.08)!important}.card{border-radius:8px!important}.sec-title{color:#0f2532!important}.sec-title .pill{background:#27a9ff!important}.metric-value,.mcard-value{color:#0f2532!important}input[type=number],input[type=range],select{background:#fbfdfe!important;color:#102431!important;border-color:#c9d7df!important}.chart-box,.table-wrap{background:#fff!important;border-color:#d8e2e8!important}@media(max-width:620px){.tool-hero{padding:48px 0 34px}.tool-hero-wrap{width:min(100% - 28px,1180px)}.tool-hero h1{font-size:38px}.tool-hero p{font-size:16px}}
 </style>
 </head>
 <body>
@@ -446,20 +450,27 @@ footer span { color: var(--sena); }
   <div id="load-msg">CALCULANDO...</div>
 </div>
 
-<header>
-  <div class="hdr-left">
-    <div class="hdr-badge">Sparkcalc · Calidad de potencia</div>
-    <h1>Analisis <span>armonico</span> y neutro</h1>
-    <div class="hdr-sub">NTC 5001 · IEEE 519 · Herramienta tecnica</div>
+<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html"><span class="mark" aria-hidden="true"><img src="../assets/img/logos.jpg" alt="" aria-hidden="true"></span><span>SPARKCALC</span></a><nav class="links" aria-label="Navegaci&oacute;n principal"><a href="../index.html">Inicio</a><a href="herramientas.html">Herramientas</a><a href="planes.html">Planes</a><a href="soporte.html">Soporte</a></nav><div class="actions"><a class="btn" href="login.html">Iniciar sesi&oacute;n</a><a class="btn primary" href="registro.html">Registrarse</a></div></div></header>
+
+<section class="tool-hero" aria-labelledby="quality-title">
+  <div class="tool-hero-wrap">
+    <div class="tool-eyebrow">M&oacute;dulo de an&aacute;lisis</div>
+    <h1 id="quality-title">Calidad de Energ&iacute;a</h1>
+    <p>Eval&uacute;a arm&oacute;nicos, THD, TDD, corriente de neutro y criterios de cumplimiento para sistemas el&eacute;ctricos.</p>
+    <div class="tool-standards" aria-label="Normas de referencia">
+      <span>NTC 5001</span>
+      <span>IEEE 519</span>
+      <span>NTC 2050</span>
+      <span>IEC 60364-5-52</span>
+    </div>
   </div>
-  <a class="spark-home-link" href="../index.html"><img class="spark-home-logo" src="../assets/img/logos.jpg" alt="Sparkcalc"><span>SPARKCALC</span></a>
-</header>
+</section>
 
 <div class="tabs">
   <button class="tab-btn active" data-num="01" data-tab="0">Ingreso de Datos</button>
   <button class="tab-btn" data-num="02" data-tab="1">Armónicos Individuales</button>
   <button class="tab-btn" data-num="03" data-tab="2">Suma de Fourier</button>
-  <button class="tab-btn" data-num="04" data-tab="3">Análisis de Calidad</button>
+  <button class="tab-btn" data-num="04" data-tab="3">Calidad de Energía</button>
 </div>
 
 <main>
