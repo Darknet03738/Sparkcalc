@@ -27,6 +27,7 @@ body.page-exit { animation: pageOut .18s ease-in forwards; }
 
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
+.is-hidden { display: none; }
 .wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
 
 .eyebrow {

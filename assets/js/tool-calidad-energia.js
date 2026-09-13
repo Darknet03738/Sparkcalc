@@ -21,6 +21,9 @@ let waveAnglesI=[], waveFundI=[], waveFourierI=[];
 let chartHarms=null, chartFourier=null;
 let chartSpecV=null, chartSpecI=null, chartVrms=null, chartIrms=null;
 let selectedHarms = new Set([1, 3, 5]);
+const hideEl=(el)=>{ if(!el) return; el.classList.add('is-hidden'); el.style.display='none'; };
+const showBlock=(el)=>{ if(!el) return; el.classList.remove('is-hidden'); el.style.display='block'; };
+const isHidden=(el)=>!el || el.classList.contains('is-hidden') || el.style.display==='none';
 
 // ═══════════════════════════════════════════════════════════════
 // NTC 5001 LIMITS
@@ -200,8 +203,8 @@ window.addEventListener('load', function() {
   // Toggle transformer calculator panel
   document.getElementById('btnToggleTrafo').addEventListener('click', () => {
     const panel = document.getElementById('trafoCalcPanel');
-    const isVisible = panel.style.display !== 'none';
-    panel.style.display = isVisible ? 'none' : 'block';
+    const isVisible = !isHidden(panel);
+    isVisible ? hideEl(panel) : showBlock(panel);
     document.getElementById('btnToggleTrafo').textContent = isVisible
       ? '⚙ Calcular desde datos del transformador'
       : '✕ Cerrar calculador';
@@ -854,7 +857,7 @@ function updateNeutral() {
   const hasData = contributions.some(c => c.ih > 0);
 
   if (hasData) {
-    stepDiv.style.display = 'block';
+    showBlock(stepDiv);
     const modeLabel = isPeak ? 'PICO' : 'RMS';
 
     // ── PASO 1: IL ──
@@ -926,7 +929,7 @@ function updateNeutral() {
 
     stepContent.innerHTML = step1 + step2 + step3 + step4;
   } else {
-    stepDiv.style.display = 'none';
+    hideEl(stepDiv);
   }
 
   // ── Build table ──
@@ -972,13 +975,13 @@ function updateNeutral() {
   // ── Alert ──
   const alertDiv = document.getElementById('neutralAlert');
   if (In <= 0 || I1rms <= 0) {
-    alertDiv.style.display = 'block';
+    showBlock(alertDiv);
     alertDiv.style.background = 'rgba(0,116,217,.08)';
     alertDiv.style.border = '1px solid rgba(0,116,217,.2)';
     alertDiv.style.color = 'var(--accent3)';
     alertDiv.innerHTML = 'ℹ️ <b>Sin datos de corriente armónica.</b> Ingrese armónicos de corriente en la Tab 1 (cambie a modo "Corriente") para ver el análisis del neutro.';
   } else if (ratioPhase > 100) {
-    alertDiv.style.display = 'block';
+    showBlock(alertDiv);
     alertDiv.style.background = 'rgba(255,65,54,.1)';
     alertDiv.style.border = '1px solid rgba(255,65,54,.25)';
     alertDiv.style.color = '#ff6b6b';
@@ -988,7 +991,7 @@ function updateNeutral() {
       → IEC 60364-5-52 exige que el neutro NO se reduzca cuando I<sub>N</sub> > I<sub>FASE</sub>.<br>
       → NTC 2050 §310.15(B)(5)(c): considerar factor de corrección por armónicos.`;
   } else if (ratioPhase > 50) {
-    alertDiv.style.display = 'block';
+    showBlock(alertDiv);
     alertDiv.style.background = 'rgba(255,133,27,.1)';
     alertDiv.style.border = '1px solid rgba(255,133,27,.25)';
     alertDiv.style.color = '#FF851B';
@@ -996,14 +999,14 @@ function updateNeutral() {
       El contenido armónico triplen es significativo. Considere no reducir la sección del neutro.<br>
       → IEC 60364-5-52 Anexo C: si H3 > 33%, el neutro debe tener la misma sección que las fases.`;
   } else if (In > 0) {
-    alertDiv.style.display = 'block';
+    showBlock(alertDiv);
     alertDiv.style.background = 'rgba(0,112,60,.08)';
     alertDiv.style.border = '1px solid rgba(0,112,60,.2)';
     alertDiv.style.color = 'var(--sena)';
     alertDiv.innerHTML = `✔ <b>Neutro dentro de límites seguros.</b> I<sub>N</sub> = ${In.toFixed(2)} A (${ratioPhase.toFixed(1)}% de I<sub>FASE</sub>).<br>
       El contenido triplen es bajo. Se puede considerar reducción del neutro según NTC 2050 §310.15(B)(7).`;
   } else {
-    alertDiv.style.display = 'none';
+    hideEl(alertDiv);
   }
 }
 

@@ -255,6 +255,7 @@ footer strong{color:var(--az)}
 .sec-heading h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--az);margin-bottom:.5rem;line-height:1.25}
 .sec-heading p{color:#7F8C8D;font-size:.95rem;max-width:520px;margin:0 auto}
 .sec-badge{display:inline-block;background:var(--azc);color:var(--az);font-size:.72rem;font-weight:700;padding:.25rem .85rem;border-radius:20px;margin-bottom:.75rem;letter-spacing:.6px;text-transform:uppercase}
+.portfolio-showcase{background:#f4f7f9;padding-top:1rem}
 
 /* ══ SECCIÓN 1 · PROCESO ════════════════════════════ */
 .sec-proceso{max-width:1140px;margin:3rem auto;padding:0 1.5rem}
@@ -1184,3 +1185,59 @@ input[type=range]::-moz-range-thumb{
 .sol-shine{animation:cell-shimmer 2.4s ease-in-out infinite}
 .sol-shine:nth-child(2){animation-delay:.4s}
 .sol-shine:nth-child(3){animation-delay:.8s}
+
+
+/* Inline styles moved from pages/fotovoltaico.html */
+.fv-inline-003{padding-top:1.2rem;}
+.fv-inline-004{font-size:.78rem;color:#7F8C8D;}
+.fv-inline-005{font-weight:700;color:var(--az);min-width:65px;}
+.fv-inline-006{font-size:1.1rem;}
+.fv-inline-007{text-align:right;}
+.fv-inline-008{flex:2;min-width:180px;}
+.fv-inline-009{flex:1;min-width:90px;}
+.fv-inline-010{flex:1;min-width:90px;}
+.fv-inline-011{flex:1;min-width:90px;}
+.fv-inline-012{flex:1;min-width:90px;}
+.fv-inline-013{text-align:right;margin-bottom:.7rem;}
+.fv-inline-014{width:100%;}
+.fv-inline-015{font-size:2rem;margin-bottom:.5rem;}
+.fv-inline-017{background:var(--az);color:#fff;}
+.fv-inline-018{padding:.5rem .7rem;font-weight:700;}
+.fv-inline-019{padding:.5rem .7rem;font-weight:700;}
+.fv-inline-020{padding:.5rem .7rem;font-weight:700;}
+.fv-inline-021{padding-top:1.2rem;}
+.fv-inline-022{font-size:.78rem;color:#7F8C8D;}
+.fv-inline-023{font-weight:700;color:var(--az);min-width:65px;}
+.fv-inline-024{margin-top:1rem;}
+.fv-inline-025{grid-column:1/-1;}
+.fv-inline-026{font-weight:400;color:#8fa5bb;}
+.fv-inline-027{font-weight:400;opacity:.65;}
+.fv-inline-028{margin-top:.3rem;font-style:italic;color:#95A5A6;}
+.fv-inline-034{animation-delay:0s;}
+.fv-inline-035{animation-delay:.3s;}
+.fv-inline-036{animation-delay:.6s;}
+.fv-inline-037{animation-delay:.9s;}
+.fv-inline-038{animation-delay:1.2s;}
+.fv-inline-039{animation-delay:1.5s;}
+.fv-inline-040{animation-delay:1.8s;}
+.fv-inline-041{animation-delay:2.1s;}
+.fv-inline-042{animation-delay:0s;}
+.fv-inline-043{animation-delay:.35s;}
+.fv-inline-044{animation-delay:.7s;}
+.fv-inline-045{animation-delay:1.05s;}
+.fv-inline-046{animation-delay:1.4s;}
+.fv-inline-047{animation-delay:1.75s;}
+.fv-inline-048{animation-delay:2.1s;}
+.fv-inline-049{animation-delay:2.45s;}
+.fv-inline-050{animation-delay:0s;}
+.fv-inline-051{animation-delay:.3s;}
+.fv-inline-052{animation-delay:.6s;}
+.fv-inline-053{animation-delay:.9s;}
+.fv-inline-054{animation-delay:1.2s;}
+.fv-inline-055{animation-delay:1.5s;}
+.fv-inline-056{animation-delay:1.8s;}
+.fv-inline-057{animation-delay:2.1s;}
+.fv-inline-058{background:linear-gradient(135deg,#1F4E79,#2ecc71);color:#fff;border:none;}
+.fv-inline-059{margin-bottom:0;}
+.fv-inline-060{font-size:clamp(1.1rem,2.5vw,1.5rem);}
+.fv-inline-061{font-size:.88rem;}

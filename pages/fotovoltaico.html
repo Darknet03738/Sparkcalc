@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora solar - Sparkcalc</title>
+<title>C&aacute;lculo fotovoltaico - Sparkcalc</title>
 <link rel=icon href=../assets/img/logos.jpg>
-<link rel="stylesheet" href="../assets/css/styles.css?v=20260913-shared-tools">
-<script src="../assets/js/main.js?v=20260913-shared-tools" defer></script>
+<link rel="stylesheet" href="../assets/css/styles.css?v=20260913-solar-focus">
+<script src="../assets/js/main.js?v=20260913-solar-focus" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<link rel="stylesheet" href="../assets/css/tool-fotovoltaico.css?v=20260913-shared-tools">
+<link rel="stylesheet" href="../assets/css/tool-fotovoltaico.css?v=20260913-solar-focus">
 </head>
 <body class="external-tool-page solar-tool">
 
@@ -124,7 +124,7 @@
     </div>
 
     <!-- COMERCIAL -->
-    <div id="qC" class="q-seg" style="display:none">
+    <div id="qC" class="q-seg fv-inline-001 is-hidden">
       <div class="ej-wrap">
         <span class="ej-label">Ejemplos:</span>
         <button class="ej-btn" data-ej="C" onclick="applyQuickPreset('C',600000,750,0,60,'diurno',0,this)">🏪 Local pequeño · $600k</button>
@@ -174,7 +174,7 @@
     </div>
 
     <!-- INDUSTRIAL -->
-    <div id="qI" class="q-seg" style="display:none">
+    <div id="qI" class="q-seg fv-inline-002 is-hidden">
       <div class="ej-wrap">
         <span class="ej-label">Ejemplos:</span>
         <button class="ej-btn" data-ej="I" onclick="applyQuickPreset('I',5000000,6000,0,50,0,0,this)">🏭 PYME · $5M</button>
@@ -230,7 +230,7 @@
   </div><!-- /form-inner -->
 
   <div class="period-wrap">
-    <div class="form-step" style="padding-top:1.2rem"><div class="form-step-n">2</div> Período de proyección</div>
+    <div class="form-step fv-inline-003"><div class="form-step-n">2</div> Período de proyección</div>
     <!-- Period selector (quick mode) -->
     <div class="period-box">
       <div class="period-title">📅 Horizonte de análisis</div>
@@ -242,16 +242,16 @@
         <button class="period-btn" onclick="setPeriodQ(30,this)">30 años</button>
       </div>
       <div class="period-custom">
-        <span style="font-size:.78rem;color:#7F8C8D">O personaliza:</span>
+        <span class="fv-inline-004">O personaliza:</span>
         <input type="range" id="q-period-range" min="1" max="30" value="25" step="1"
           oninput="setPeriodFromRange(this.value)">
-        <span id="q-period-label" style="font-weight:700;color:var(--az);min-width:65px">25 años</span>
+        <span class="fv-inline-005" id="q-period-label">25 años</span>
       </div>
     </div>
     <!-- Tarifa personalizada -->
     <div class="tariff-box">
       <div class="tariff-box-hd">
-        <span style="font-size:1.1rem">⚡</span>
+        <span class="fv-inline-006">⚡</span>
         <span class="tariff-box-title">Tarifa de energía</span>
         <span class="tariff-box-hint">Búscala en tu factura de energía</span>
       </div>
@@ -293,7 +293,7 @@
         <div class="ls-val" id="ls-total-kwh">0 kWh/mes</div>
         <div class="ls-lbl">Consumo total estimado de tus cargas</div>
       </div>
-      <div style="text-align:right">
+      <div class="fv-inline-007">
         <div class="ls-val" id="ls-total-cop">$0/mes</div>
         <div class="ls-lbl">Costo estimado mensual</div>
       </div>
@@ -301,32 +301,32 @@
 
     <!-- Add load controls -->
     <div class="load-add-bar" id="load-add-bar">
-      <div style="flex:2;min-width:180px">
+      <div class="fv-inline-008">
         <label>Aparato o equipo</label>
         <select id="load-preset" onchange="applyPreset()">
           <option value="">— Seleccionar de la lista —</option>
         </select>
       </div>
-      <div style="flex:1;min-width:90px">
+      <div class="fv-inline-009">
         <label>Potencia (W)</label>
         <input type="number" id="load-w" placeholder="W" min="1" step="1">
       </div>
-      <div style="flex:1;min-width:90px">
+      <div class="fv-inline-010">
         <label>Horas/día</label>
         <input type="number" id="load-h" placeholder="h/día" min="0.1" max="24" step="0.5">
       </div>
-      <div style="flex:1;min-width:90px">
+      <div class="fv-inline-011">
         <label>Días/semana</label>
         <input type="number" id="load-d" placeholder="días" min="1" max="7" value="7">
       </div>
-      <div style="flex:1;min-width:90px">
+      <div class="fv-inline-012">
         <label>Cantidad</label>
         <input type="number" id="load-qty" placeholder="unid." min="1" value="1">
       </div>
       <button class="add-btn" onclick="addLoad()">+ Agregar</button>
     </div>
 
-    <div style="text-align:right;margin-bottom:.7rem">
+    <div class="fv-inline-013">
       <button class="loads-action-btn" onclick="toggleCustomLoad()">✏️ Agregar carga personalizada</button>
     </div>
 
@@ -354,16 +354,16 @@
           <input type="number" id="cl-qty" placeholder="unid." min="1" value="1">
         </div>
       </div>
-      <button class="add-btn" onclick="addCustomLoad()" style="width:100%">+ Añadir carga personalizada</button>
+      <button class="add-btn fv-inline-014" onclick="addCustomLoad()">+ Añadir carga personalizada</button>
     </div>
 
     <!-- Loads table -->
     <div id="loads-container">
       <div class="empty-loads" id="empty-loads">
-        <div style="font-size:2rem;margin-bottom:.5rem">🔌</div>
+        <div class="fv-inline-015">🔌</div>
         <div>Agrega tus aparatos o equipos para calcular el consumo total y simular el sistema solar ideal.</div>
       </div>
-      <table class="load-table" id="loads-table" style="display:none">
+      <table class="load-table fv-inline-016 is-hidden" id="loads-table">
         <thead>
           <tr>
             <th>Aparato / Equipo</th>
@@ -378,10 +378,10 @@
         </thead>
         <tbody id="loads-tbody"></tbody>
         <tfoot>
-          <tr style="background:var(--az);color:#fff">
-            <td colspan="5" style="padding:.5rem .7rem;font-weight:700">TOTAL</td>
-            <td style="padding:.5rem .7rem;font-weight:700" id="tfoot-kwh">0 kWh/mes</td>
-            <td colspan="2" style="padding:.5rem .7rem;font-weight:700" id="tfoot-cop">$0/mes</td>
+          <tr class="fv-inline-017">
+            <td class="fv-inline-018" colspan="5">TOTAL</td>
+            <td class="fv-inline-019" id="tfoot-kwh">0 kWh/mes</td>
+            <td class="fv-inline-020" colspan="2" id="tfoot-cop">$0/mes</td>
           </tr>
         </tfoot>
       </table>
@@ -391,7 +391,7 @@
   </div><!-- /loads-inner -->
 
   <div class="period-wrap">
-    <div class="form-step" style="padding-top:1.2rem"><div class="form-step-n">2</div> Período y configuración</div>
+    <div class="form-step fv-inline-021"><div class="form-step-n">2</div> Período y configuración</div>
     <!-- Period selector (loads mode) -->
     <div class="period-box">
       <div class="period-title">📅 Horizonte de análisis</div>
@@ -403,15 +403,15 @@
         <button class="period-btn" onclick="setPeriodL(30,this)">30 años</button>
       </div>
       <div class="period-custom">
-        <span style="font-size:.78rem;color:#7F8C8D">O personaliza:</span>
+        <span class="fv-inline-022">O personaliza:</span>
         <input type="range" id="l-period-range" min="1" max="30" value="25" step="1"
           oninput="setPeriodFromRangeL(this.value)">
-        <span id="l-period-label" style="font-weight:700;color:var(--az);min-width:65px">25 años</span>
+        <span class="fv-inline-023" id="l-period-label">25 años</span>
       </div>
     </div>
 
     <!-- Loads: estrato + target -->
-    <div class="form-grid" style="margin-top:1rem">
+    <div class="form-grid fv-inline-024">
       <div class="field">
         <label>Estrato / tarifa de referencia</label>
         <select id="l-estrato" onchange="recalcLoads()">
@@ -433,8 +433,8 @@
           <span class="range-val" id="l-tv">70%</span>
         </div>
       </div>
-      <div class="field" style="grid-column:1/-1">
-        <label>Tarifa personalizada (COP/kWh) <span style="font-weight:400;color:#8fa5bb">— opcional</span></label>
+      <div class="field fv-inline-025">
+        <label>Tarifa personalizada (COP/kWh) <span class="fv-inline-026">— opcional</span></label>
         <input type="number" id="custom-tariff-l" placeholder="Auto (usa tarifa del estrato)" min="100" max="2500" step="10" oninput="recalcLoads()">
         <span class="field-hint">Si la dejas vacía se usa la tarifa de referencia del estrato</span>
       </div>
@@ -452,7 +452,7 @@
   <div class="propuesta-wrap" id="propuesta-wrap">
     <div class="propuesta-toggle" onclick="togglePropuesta()">
       <span>📄</span>
-      <span>Personalizar Propuesta <span style="font-weight:400;opacity:.65">(Opcional)</span></span>
+      <span>Personalizar Propuesta <span class="fv-inline-027">(Opcional)</span></span>
       <i class="pt-chev">▾</i>
     </div>
     <div class="propuesta-body">
@@ -487,7 +487,7 @@
       <div class="ph-tagline">Energía Renovable · Solar Fotovoltaica</div>
       <div class="ph-contact">Pereira, Risaralda · Colombia</div>
       <div class="ph-contact">geovolt.com.co · +57 311 564 6174</div>
-      <div class="ph-contact" style="margin-top:.3rem;font-style:italic;color:#95A5A6">Simulación estimada — no reemplaza propuesta técnica formal</div>
+      <div class="ph-contact fv-inline-028">Simulación estimada — no reemplaza propuesta técnica formal</div>
     </div>
     <div class="ph-sep"></div>
     <div class="ph-right">
@@ -515,7 +515,7 @@
   </div>
 
   <!-- Comparación antes / después -->
-  <div class="savings-compare" id="savings-compare" style="display:none">
+  <div class="savings-compare fv-inline-029 is-hidden" id="savings-compare">
     <h3>📊 Comparación de tu Factura Mensual</h3>
     <div class="sc-row">
       <div class="sc-side sc-before">
@@ -538,7 +538,7 @@
   </div>
 
   <!-- Barra de recuperación de inversión -->
-  <div class="payback-bar-wrap" id="payback-bar-wrap" style="display:none">
+  <div class="payback-bar-wrap fv-inline-030 is-hidden" id="payback-bar-wrap">
     <div class="pb-head">
       <span class="pb-title">⏱ Progreso de recuperación de tu inversión</span>
       <span class="pb-years-txt" id="pb-years-txt">—</span>
@@ -596,11 +596,11 @@
       <div class="dr"><span class="dk">% cubierto por solar</span><span class="dv gn" id="d-pct">—</span></div>
       <div class="dr"><span class="dk">TIR del proyecto</span><span class="dv gn" id="d-tir">—</span></div>
       <div class="dr"><span class="dk">VAN (tasa 15 %)</span><span class="dv gn" id="d-van">—</span></div>
-      <div class="dr" id="fp-row" style="display:none">
+      <div class="dr fv-inline-031 is-hidden" id="fp-row">
         <span class="dk">Ahorro adicional FP/año</span>
         <span class="dv gn" id="d-fpsav">—</span>
       </div>
-      <div class="dr" id="cap-row" style="display:none">
+      <div class="dr fv-inline-032 is-hidden" id="cap-row">
         <span class="dk">Banco de capacitores est.</span>
         <span class="dv" id="d-cap">—</span>
       </div>
@@ -613,7 +613,7 @@
       📐 Ver cálculos paso a paso
       <span class="desglose-arrow">▼</span>
     </button>
-    <div class="desglose-body" id="desglose-body" style="display:none">
+    <div class="desglose-body fv-inline-033 is-hidden" id="desglose-body">
 
       <!-- DATOS DE ENTRADA -->
       <div class="des-section">
@@ -691,20 +691,10 @@
 </div>
 </main>
 
-<!-- ═══ TABS DE NAVEGACIÓN POR SECCIÓN ═══ -->
-<div class="page-tabs-nav">
-  <div class="page-tabs-inner">
-    <button class="page-tab-btn active" onclick="switchPageTab('tab-soluciones',this)">🔧 Soluciones</button>
-    <button class="page-tab-btn" onclick="switchPageTab('tab-proceso',this)">⚙️ Proceso y Garantías</button>
-    <button class="page-tab-btn" onclick="switchPageTab('tab-impacto',this)">🌱 Impacto Ambiental</button>
-    <button class="page-tab-btn" onclick="switchPageTab('tab-financiacion',this)">💰 Financiación y FAQ</button>
-  </div>
-</div>
-
 <!-- ══════════════════════════════════════════════════
      PESTAÑA 1 · SOLUCIONES (Portafolio + Aliados)
 ══════════════════════════════════════════════════ -->
-<div class="page-tab-panel active" id="tab-soluciones">
+<div class="portfolio-showcase" id="portafolio">
 
 <!-- ══════════════════════════════════════════════════
      SECCIÓN · PORTAFOLIO DE SOLUCIONES
@@ -723,14 +713,14 @@
         <!-- Sol -->
         <g transform="translate(26,28)">
           <circle cx="0" cy="0" r="11" fill="#FFD23C" opacity=".92" filter="url(#glow-y)"/>
-          <line class="sun-ray" x1="0" y1="-17" x2="0" y2="-21" style="animation-delay:0s"/>
-          <line class="sun-ray" x1="12" y1="-12" x2="15" y2="-15" style="animation-delay:.3s"/>
-          <line class="sun-ray" x1="17" y1="0" x2="21" y2="0" style="animation-delay:.6s"/>
-          <line class="sun-ray" x1="12" y1="12" x2="15" y2="15" style="animation-delay:.9s"/>
-          <line class="sun-ray" x1="0" y1="17" x2="0" y2="21" style="animation-delay:1.2s"/>
-          <line class="sun-ray" x1="-12" y1="12" x2="-15" y2="15" style="animation-delay:1.5s"/>
-          <line class="sun-ray" x1="-17" y1="0" x2="-21" y2="0" style="animation-delay:1.8s"/>
-          <line class="sun-ray" x1="-12" y1="-12" x2="-15" y2="-15" style="animation-delay:2.1s"/>
+          <line class="sun-ray fv-inline-034" x1="0" y1="-17" x2="0" y2="-21"/>
+          <line class="sun-ray fv-inline-035" x1="12" y1="-12" x2="15" y2="-15"/>
+          <line class="sun-ray fv-inline-036" x1="17" y1="0" x2="21" y2="0"/>
+          <line class="sun-ray fv-inline-037" x1="12" y1="12" x2="15" y2="15"/>
+          <line class="sun-ray fv-inline-038" x1="0" y1="17" x2="0" y2="21"/>
+          <line class="sun-ray fv-inline-039" x1="-12" y1="12" x2="-15" y2="15"/>
+          <line class="sun-ray fv-inline-040" x1="-17" y1="0" x2="-21" y2="0"/>
+          <line class="sun-ray fv-inline-041" x1="-12" y1="-12" x2="-15" y2="-15"/>
         </g>
         <defs>
           <filter id="glow-y"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -828,14 +818,14 @@
         <!-- Sol -->
         <g transform="translate(26,28)">
           <circle cx="0" cy="0" r="11" fill="#FFD23C" opacity=".92" filter="url(#glow-y2)"/>
-          <line class="sun-ray" x1="0" y1="-17" x2="0" y2="-21" style="animation-delay:0s"/>
-          <line class="sun-ray" x1="12" y1="-12" x2="15" y2="-15" style="animation-delay:.35s"/>
-          <line class="sun-ray" x1="17" y1="0" x2="21" y2="0" style="animation-delay:.7s"/>
-          <line class="sun-ray" x1="12" y1="12" x2="15" y2="15" style="animation-delay:1.05s"/>
-          <line class="sun-ray" x1="0" y1="17" x2="0" y2="21" style="animation-delay:1.4s"/>
-          <line class="sun-ray" x1="-12" y1="12" x2="-15" y2="15" style="animation-delay:1.75s"/>
-          <line class="sun-ray" x1="-17" y1="0" x2="-21" y2="0" style="animation-delay:2.1s"/>
-          <line class="sun-ray" x1="-12" y1="-12" x2="-15" y2="-15" style="animation-delay:2.45s"/>
+          <line class="sun-ray fv-inline-042" x1="0" y1="-17" x2="0" y2="-21"/>
+          <line class="sun-ray fv-inline-043" x1="12" y1="-12" x2="15" y2="-15"/>
+          <line class="sun-ray fv-inline-044" x1="17" y1="0" x2="21" y2="0"/>
+          <line class="sun-ray fv-inline-045" x1="12" y1="12" x2="15" y2="15"/>
+          <line class="sun-ray fv-inline-046" x1="0" y1="17" x2="0" y2="21"/>
+          <line class="sun-ray fv-inline-047" x1="-12" y1="12" x2="-15" y2="15"/>
+          <line class="sun-ray fv-inline-048" x1="-17" y1="0" x2="-21" y2="0"/>
+          <line class="sun-ray fv-inline-049" x1="-12" y1="-12" x2="-15" y2="-15"/>
         </g>
         <!-- Paneles (2x) -->
         <g transform="translate(62,14)">
@@ -933,14 +923,14 @@
         <!-- Sol -->
         <g transform="translate(22,27)">
           <circle cx="0" cy="0" r="10" fill="#FFD23C" opacity=".93" filter="url(#glow-ym)"/>
-          <line class="sun-ray" x1="0" y1="-16" x2="0" y2="-20" style="animation-delay:0s"/>
-          <line class="sun-ray" x1="11" y1="-11" x2="14" y2="-14" style="animation-delay:.3s"/>
-          <line class="sun-ray" x1="16" y1="0" x2="20" y2="0" style="animation-delay:.6s"/>
-          <line class="sun-ray" x1="11" y1="11" x2="14" y2="14" style="animation-delay:.9s"/>
-          <line class="sun-ray" x1="0" y1="16" x2="0" y2="20" style="animation-delay:1.2s"/>
-          <line class="sun-ray" x1="-11" y1="11" x2="-14" y2="14" style="animation-delay:1.5s"/>
-          <line class="sun-ray" x1="-16" y1="0" x2="-20" y2="0" style="animation-delay:1.8s"/>
-          <line class="sun-ray" x1="-11" y1="-11" x2="-14" y2="-14" style="animation-delay:2.1s"/>
+          <line class="sun-ray fv-inline-050" x1="0" y1="-16" x2="0" y2="-20"/>
+          <line class="sun-ray fv-inline-051" x1="11" y1="-11" x2="14" y2="-14"/>
+          <line class="sun-ray fv-inline-052" x1="16" y1="0" x2="20" y2="0"/>
+          <line class="sun-ray fv-inline-053" x1="11" y1="11" x2="14" y2="14"/>
+          <line class="sun-ray fv-inline-054" x1="0" y1="16" x2="0" y2="20"/>
+          <line class="sun-ray fv-inline-055" x1="-11" y1="11" x2="-14" y2="14"/>
+          <line class="sun-ray fv-inline-056" x1="-16" y1="0" x2="-20" y2="0"/>
+          <line class="sun-ray fv-inline-057" x1="-11" y1="-11" x2="-14" y2="-14"/>
         </g>
         <!-- Paneles (2x) -->
         <g transform="translate(58,14)">
@@ -1026,7 +1016,7 @@
         <text x="8" y="118" font-size="7" fill="rgba(255,255,255,.38)" font-family="sans-serif">Solar + Batería — máxima autosuficiencia</text>
       </svg>
       <h3>Sistemas Mixtos On-Grid + Batería</h3>
-      <span class="sol-tag" style="background:linear-gradient(135deg,#1F4E79,#2ecc71);color:#fff;border:none">Mixto</span>
+      <span class="sol-tag fv-inline-058">Mixto</span>
       <p>Ideal para quienes quieren lo mejor de ambos mundos: inyectar excedentes a la red <em>y</em> contar con respaldo en baterías ante cortes. Mayor independencia energética con rentabilidad garantizada.</p>
       <a class="sol-btn"
          href="https://wa.me/573115646174?text=Hola%20Sparkcalc%2C%20me%20interesa%20un%20Sistema%20Mixto%20On-Grid%20con%20bater%C3%ADas%20para%20tener%20respaldo%20y%20seguir%20inyectando%20a%20la%20red."
@@ -1145,10 +1135,10 @@
 ══════════════════════════════════════════════════ -->
 <section class="sec-aliados">
   <div class="aliados-inner">
-    <div class="sec-heading" style="margin-bottom:0">
+    <div class="sec-heading fv-inline-059">
       <span class="sec-badge">Tecnología Global Certificada</span>
-      <h2 style="font-size:clamp(1.1rem,2.5vw,1.5rem)">Bajo RETIE y Norma NTC 2050</h2>
-      <p style="font-size:.88rem">Trabajamos exclusivamente con fabricantes Tier 1 auditados por BNEF con las mayores garantías del mercado.</p>
+      <h2 class="fv-inline-060">Bajo RETIE y Norma NTC 2050</h2>
+      <p class="fv-inline-061">Trabajamos exclusivamente con fabricantes Tier 1 auditados por BNEF con las mayores garantías del mercado.</p>
     </div>
     <div class="aliados-row">
 
@@ -1198,414 +1188,7 @@
   </div>
 </section>
 
-</div><!-- /tab-soluciones -->
-
-<!-- ══════════════════════════════════════════════════
-     PESTAÑA 2 · PROCESO Y GARANTÍAS
-══════════════════════════════════════════════════ -->
-<div class="page-tab-panel" id="tab-proceso">
-
-<!-- ══════════════════════════════════════════════════
-     SECCIÓN · NUESTRO PROCESO
-══════════════════════════════════════════════════ -->
-<section class="sec-proceso">
-  <div class="sec-heading">
-    <span class="sec-badge">¿Cómo trabajamos?</span>
-    <h2>De la Simulación al Techo</h2>
-    <p>Nuestro proceso garantiza que cada sistema solar sea técnicamente sólido, legalmente correcto y energéticamente rentable.</p>
-  </div>
-  <div class="timeline">
-
-    <div class="tl-step">
-      <div class="tl-num">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <span class="tl-step-label">Paso 01</span>
-      </div>
-      <div class="tl-content">
-        <h3>Estudio de Viabilidad y Diseño Técnico</h3>
-        <p>Analizamos la radiación solar real local (HSP), el espacio disponible en tu techo y la inclinación óptima para maximizar la producción fotovoltaica.</p>
-      </div>
-    </div>
-
-    <div class="tl-step">
-      <div class="tl-num">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        <span class="tl-step-label">Paso 02</span>
-      </div>
-      <div class="tl-content">
-        <h3>Gestión Normativa y Legal</h3>
-        <p>Nos encargamos de todo el proceso de legalización ante el operador de red, asegurando cumplimiento estricto del RETIE, la NTC 2050 y los beneficios de la Ley 1715.</p>
-      </div>
-    </div>
-
-    <div class="tl-step">
-      <div class="tl-num">
-        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        <span class="tl-step-label">Paso 03</span>
-      </div>
-      <div class="tl-content">
-        <h3>Instalación y Montaje Seguro</h3>
-        <p>Ejecución por ingenieros y técnicos certificados. Montaje de estructuras, paneles de alta eficiencia, inversores y protecciones eléctricas bajo normas de seguridad industrial.</p>
-      </div>
-    </div>
-
-    <div class="tl-step">
-      <div class="tl-num">
-        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        <span class="tl-step-label">Paso 04</span>
-      </div>
-      <div class="tl-content">
-        <h3>Puesta en Marcha y Monitoreo 24/7</h3>
-        <p>Activación del sistema y configuración de la plataforma de monitoreo digital para ver en tiempo real cuánta energía produces y cuánto ahorras desde tu celular.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════
-     NUEVA SECCIÓN 3 · RESPALDO Y GARANTÍAS
-══════════════════════════════════════════════════ -->
-<section class="sec-garantias">
-  <div class="sec-heading">
-    <span class="sec-badge">Respaldo Total</span>
-    <h2>Garantías Sparkcalc</h2>
-    <p>Tu inversión está protegida en cada etapa: desde el panel hasta el último tornillo de la estructura.</p>
-  </div>
-  <div class="garantias-grid">
-
-    <div class="gar-card">
-      <div class="gar-shield">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-      </div>
-      <div class="gar-years">25<sup>años</sup></div>
-      <h3>Garantía de Rendimiento Fotovoltaico</h3>
-      <p>Garantía de potencia lineal en paneles solares, asegurando que sigan produciendo al menos el <strong>84 % de su capacidad original</strong> al final de su vida útil certificada.</p>
-      <span class="gar-badge">
-        <svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg>
-        Fabricante Tier 1 · BNEF
-      </span>
-    </div>
-
-    <div class="gar-card">
-      <div class="gar-shield">
-        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="16 7 12 3 8 7"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/></svg>
-      </div>
-      <div class="gar-years">5–10<sup>años</sup></div>
-      <h3>Garantía de Inversores y Equipos</h3>
-      <p>Garantía de fábrica directa en inversores y sistemas de gestión de energía contra cualquier <strong>defecto de fabricación</strong>, con cobertura de piezas y mano de obra certificada.</p>
-      <span class="gar-badge">
-        <svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg>
-        Huawei · Fronius · ABB
-      </span>
-    </div>
-
-    <div class="gar-card">
-      <div class="gar-shield">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M8 11l3 3 5-5"/></svg>
-      </div>
-      <div class="gar-years">2<sup>años</sup></div>
-      <h3>Garantía de Instalación y Montaje</h3>
-      <p>Garantía directa de Sparkcalc en <strong>mano de obra, cableado, estabilidad estructural</strong> y cumplimiento riguroso de la normativa RETIE. Atención en sitio en Pereira y área metropolitana.</p>
-      <span class="gar-badge">
-        <svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg>
-        RETIE · NTC 2050
-      </span>
-    </div>
-
-  </div>
-</section>
-
-</div><!-- /tab-proceso -->
-
-<!-- ══════════════════════════════════════════════════
-     PESTAÑA 3 · IMPACTO AMBIENTAL
-══════════════════════════════════════════════════ -->
-<div class="page-tab-panel" id="tab-impacto">
-
-<!-- ══════════════════════════════════════════════════
-     NUEVA SECCIÓN 1 · IMPACTO AMBIENTAL DINÁMICO
-══════════════════════════════════════════════════ -->
-<section class="sec-eco">
-  <div class="sec-heading">
-    <span class="sec-badge">Impacto Ecológico Real</span>
-    <h2>Tu Contribución al Planeta</h2>
-    <p>Cada kilovatio-hora solar que produces equivale a acciones tangibles de conservación ambiental. Ejecuta el simulador para verlo.</p>
-  </div>
-
-  <div class="eco-pending" id="eco-pending">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-dasharray="4 3"/><polyline points="12 7 12 12 15 14"/></svg>
-    <p style="font-weight:700;color:var(--az);margin-bottom:.3rem">Simulación pendiente</p>
-    <p>Ingresa tus datos en el simulador y haz clic en <strong>"Calcular ahorro solar"</strong> para ver tu impacto ambiental en tiempo real.</p>
-  </div>
-
-  <div class="eco-impact-grid" id="eco-impact-grid">
-
-    <div class="eco-card co2">
-      <div class="eco-topbar"></div>
-      <div class="eco-glow"></div>
-      <div class="eco-icon-circle">
-        <svg viewBox="0 0 24 24">
-          <path d="M17 18a5 5 0 0 0 0-10h-.6A7 7 0 1 0 7 18"/>
-          <path d="M12 13v5M9.5 15.5l2.5 2.5 2.5-2.5"/>
-        </svg>
-      </div>
-      <div class="eco-num" id="eco-co2">0</div>
-      <div class="eco-unit">kg CO₂ evitados / año</div>
-      <p class="eco-desc">Gases de efecto invernadero que tu sistema solar evita liberar a la atmósfera cada año frente a la generación convencional.</p>
-    </div>
-
-    <div class="eco-card tree">
-      <div class="eco-topbar"></div>
-      <div class="eco-glow"></div>
-      <div class="eco-icon-circle">
-        <svg viewBox="0 0 24 24">
-          <polygon points="12 2 3 18 21 18"/>
-          <rect x="10.5" y="18" width="3" height="4"/>
-        </svg>
-      </div>
-      <div class="eco-num" id="eco-trees">0</div>
-      <div class="eco-unit">árboles maduros equivalentes</div>
-      <p class="eco-desc">Equivale al impacto ecológico de plantar y mantener esta cantidad de árboles adultos durante un año completo.</p>
-    </div>
-
-    <div class="eco-card km">
-      <div class="eco-topbar"></div>
-      <div class="eco-glow"></div>
-      <div class="eco-icon-circle">
-        <svg viewBox="0 0 24 24">
-          <path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h13l4 4v6a2 2 0 0 1-2 2h-1"/>
-          <circle cx="7.5" cy="17.5" r="2.5"/>
-          <circle cx="17.5" cy="17.5" r="2.5"/>
-        </svg>
-      </div>
-      <div class="eco-num" id="eco-km">0</div>
-      <div class="eco-unit">km sin conducir / año</div>
-      <p class="eco-desc">Equivale a dejar de recorrer esta distancia en un automóvil de gasolina, calculado sobre la emisión promedio por kilómetro.</p>
-    </div>
-
-  </div>
-</section>
-
-</div><!-- /tab-impacto -->
-
-<!-- ══════════════════════════════════════════════════
-     PESTAÑA 4 · FINANCIACIÓN Y FAQ
-══════════════════════════════════════════════════ -->
-<div class="page-tab-panel" id="tab-financiacion">
-
-<!-- ══════════════════════════════════════════════════
-     NUEVA SECCIÓN 4 · MODELOS DE FINANCIACIÓN
-══════════════════════════════════════════════════ -->
-<section class="sec-financiacion">
-  <div class="sec-heading">
-    <span class="sec-badge">Flexibilidad Financiera</span>
-    <h2>Elige tu Modelo de Negocio</h2>
-    <p>Desde la compra directa hasta el PPA empresarial: adaptamos el modelo a tu flujo de caja y perfil de riesgo.</p>
-  </div>
-
-  <div class="fin-tabs-bar">
-    <button class="fin-tab-btn active" onclick="switchFinTab(this,'fin-dir')">💰 Compra Directa</button>
-    <button class="fin-tab-btn" onclick="switchFinTab(this,'fin-cre')">🏦 Crédito Verde</button>
-    <button class="fin-tab-btn" onclick="switchFinTab(this,'fin-ppa')">🤝 Contrato PPA</button>
-  </div>
-
-  <div class="fin-panels-wrap">
-
-    <!-- TAB 1: Compra Directa -->
-    <div class="fin-panel fin-dir active" id="fin-dir">
-      <div class="fin-card">
-        <div class="fin-header">
-          <div class="fin-icon dir">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <div>
-            <h3>Compra Directa</h3>
-            <p class="fin-sub">Inversión Propia · Retorno Máximo</p>
-          </div>
-        </div>
-        <div class="fin-features">
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>TIR más alta del mercado: tu capital trabaja para ti desde el día 1.</div>
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>Flujo de caja positivo inmediato desde el primer mes de operación.</div>
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>Propiedad total de los activos y del sistema desde el primer día.</div>
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>Aplica a deducciones tributarias Ley 1715 si eres persona jurídica.</div>
-        </div>
-        <div class="fin-highlight-row">
-          <div class="fin-hi"><div class="fin-hi-lbl">Desembolso inicial</div><div class="fin-hi-val">100 % del proyecto</div></div>
-          <div class="fin-hi"><div class="fin-hi-lbl">Recuperación típica</div><div class="fin-hi-val">4 – 7 años</div></div>
-          <div class="fin-hi"><div class="fin-hi-lbl">TIR estimada</div><div class="fin-hi-val">18 – 28 %</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 2: Crédito Verde -->
-    <div class="fin-panel fin-cre" id="fin-cre">
-      <div class="fin-card">
-        <div class="fin-header">
-          <div class="fin-icon cre">
-            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-          </div>
-          <div>
-            <h3>Crédito Verde</h3>
-            <p class="fin-sub">Financiación Bancaria · Líneas Verdes Colombia</p>
-          </div>
-        </div>
-        <div class="fin-features">
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>La cuota mensual del crédito se paga con el dinero ahorrado en factura.</div>
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>Asesoría Sparkcalc para aplicar a Líneas Verdes: Bancolombia, Davivienda y más.</div>
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>Tasas preferenciales para proyectos de energía renovable certificados.</div>
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>El sistema queda como activo propio al terminar el crédito.</div>
-        </div>
-        <div class="fin-highlight-row">
-          <div class="fin-hi"><div class="fin-hi-lbl">Desembolso inicial</div><div class="fin-hi-val">Desde $0 COP</div></div>
-          <div class="fin-hi"><div class="fin-hi-lbl">Plazo típico</div><div class="fin-hi-val">36 – 84 meses</div></div>
-          <div class="fin-hi"><div class="fin-hi-lbl">Tasa de referencia</div><div class="fin-hi-val">DTF + 4 – 6 %</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 3: PPA -->
-    <div class="fin-panel fin-ppa" id="fin-ppa">
-      <div class="fin-card">
-        <div class="fin-header">
-          <div class="fin-icon ppa">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div>
-            <h3>Contrato PPA</h3>
-            <p class="fin-sub">Power Purchase Agreement · Ideal para Industrias</p>
-          </div>
-        </div>
-        <div class="fin-features">
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>Inversión inicial <strong>$0 COP</strong>: un fondo de inversión financia el 100 % del sistema.</div>
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>Sparkcalc instala, opera y mantiene el sistema durante la vigencia del contrato.</div>
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>La empresa solo compra la energía generada a una tarifa menor que la de la red.</div>
-          <div class="fin-feat"><div class="fin-dot"><svg viewBox="0 0 10 10"><polyline points="2 5 4 7 8 3"/></svg></div>Ahorro garantizado desde el mes 1 sin riesgo técnico ni financiero para el cliente.</div>
-        </div>
-        <div class="fin-highlight-row">
-          <div class="fin-hi"><div class="fin-hi-lbl">Inversión inicial</div><div class="fin-hi-val">$0 COP</div></div>
-          <div class="fin-hi"><div class="fin-hi-lbl">Duración del PPA</div><div class="fin-hi-val">10 – 20 años</div></div>
-          <div class="fin-hi"><div class="fin-hi-lbl">Perfil ideal</div><div class="fin-hi-val">&gt; 150 kWh/mes</div></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════
-     SECCIÓN 3 · CTA + FAQ
-══════════════════════════════════════════════════ -->
-<section class="sec-cta-faq">
-
-  <div class="cta-hero">
-    <div class="cta-hero-text">
-      <h2>¿Listo para dar el salto a la energía solar?</h2>
-      <p>Convierte tu simulación en un proyecto real. Un ingeniero certificado te acompañará desde el diseño hasta la puesta en marcha.</p>
-    </div>
-    <a class="cta-hero-btn" href="https://wa.me/573115646174?text=Hola%20Sparkcalc%2C%20quiero%20agendar%20una%20asesor%C3%ADa%20de%20ingeniero" target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M8 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-      Agendar Asesoría con un Ingeniero
-    </a>
-  </div>
-
-  <div class="faq-wrap">
-    <h3>Preguntas Frecuentes</h3>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">
-        <span>¿Qué pasa en los días lluviosos o nublados?</span>
-        <div class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></div>
-      </div>
-      <div class="faq-a">
-        <div class="faq-a-inner">El sistema sigue produciendo energía aprovechando la radiación difusa, aunque a menor capacidad. Si estás conectado a la red (On-Grid), el operador cubre lo que haga falta de forma automática y transparente, sin interrumpir tu servicio en ningún momento.</div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">
-        <span>¿Cómo me beneficio de la Ley 1715?</span>
-        <div class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></div>
-      </div>
-      <div class="faq-a">
-        <div class="faq-a-inner">La Ley 1715 de 2014 te permite recibir <strong>créditos en tu factura</strong> por la energía que inyectas a la red (net metering). Si eres empresa o persona jurídica, también puedes acceder a <strong>deducción de renta hasta el 50 %</strong>, exclusión de IVA en la compra de equipos y exención de aranceles de importación sobre paneles e inversores.</div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">
-        <span>¿Qué mantenimiento requieren los paneles solares?</span>
-        <div class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></div>
-      </div>
-      <div class="faq-a">
-        <div class="faq-a-inner">Es mínimo y de bajo costo. Se requiere principalmente una <strong>limpieza periódica</strong> de la superficie de los paneles con agua para remover polvo y suciedad, y una <strong>revisión técnica anual</strong> de las conexiones eléctricas, el inversor y la estructura de soporte. Los paneles de alta eficiencia tienen garantías de producto de 10-12 años y de rendimiento de 25 años.</div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">
-        <span>¿Cuánto tiempo toma instalar un sistema solar?</span>
-        <div class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></div>
-      </div>
-      <div class="faq-a">
-        <div class="faq-a-inner">Un sistema residencial típico se instala en <strong>1 a 2 días hábiles</strong>. Para sistemas comerciales o industriales, el montaje puede tomar entre 3 y 7 días según el tamaño. El proceso completo —desde la visita técnica inicial hasta la puesta en marcha y legalización ante el operador de red— tarda aproximadamente <strong>3 a 5 semanas</strong>. Sparkcalc gestiona todo el proceso para que no tengas que preocuparte por nada.</div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">
-        <span>¿Necesito permisos para instalar paneles solares en Colombia?</span>
-        <div class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></div>
-      </div>
-      <div class="faq-a">
-        <div class="faq-a-inner">Sí. Los sistemas conectados a la red (On-Grid) requieren un proceso de <strong>legalización ante el operador de red</strong> (EPQ o CHEC en Risaralda), que incluye la solicitud de conexión, la firma de un contrato de medida bidireccional y la instalación de un medidor bidireccional. Sparkcalc se encarga de todos estos trámites bajo la <strong>Ley 1715 de 2014</strong> y la Resolución CREG 174 de 2021, sin costo adicional para el cliente.</div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">
-        <span>¿Qué pasa si genero más energía de la que consumo?</span>
-        <div class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></div>
-      </div>
-      <div class="faq-a">
-        <div class="faq-a-inner">Los excedentes se inyectan automáticamente a la red eléctrica y el operador te reconoce esa energía como <strong>créditos en tu próxima factura</strong> (esquema de medida neta o net metering, regulado por la Res. CREG 174/2021). Esto puede reducir tu factura a cero, o incluso generar un saldo a favor que se aplica en los meses siguientes. Para sistemas On-Grid residenciales en Pereira, esto es un beneficio frecuente especialmente en temporadas de alta radiación.</div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">
-        <span>¿Los paneles solares resisten la lluvia, el granizo y el clima de Pereira?</span>
-        <div class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></div>
-      </div>
-      <div class="faq-a">
-        <div class="faq-a-inner">Los paneles que utilizamos tienen certificación <strong>IP67 y pruebas IEC 61215</strong>, lo que garantiza resistencia total al agua, granizo de hasta 25 mm de diámetro y vientos de más de 130 km/h. El clima de Pereira y el Eje Cafetero, aunque lluvioso, es ideal para la energía solar: la lluvia misma <strong>limpia los paneles de forma natural</strong> y las temperaturas moderadas mejoran el rendimiento frente a zonas de calor extremo. La irradiación anual de la región (4.8 HSP/día) es altamente competitiva.</div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">
-        <span>¿Puedo ampliar mi sistema solar en el futuro?</span>
-        <div class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></div>
-      </div>
-      <div class="faq-a">
-        <div class="faq-a-inner">Sí. Los sistemas On-Grid diseñados por Sparkcalc son <strong>modulares y escalables</strong>. Si en el futuro adquieres un vehículo eléctrico, una nueva maquinaria o amplías tu negocio, podemos agregar paneles adicionales o incluso incorporar baterías para convertir el sistema en uno híbrido. Recomendamos dejar previsto el espacio físico y la capacidad del inversor desde el diseño inicial para facilitar futuras expansiones.</div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">
-        <span>¿Cuál es la diferencia entre un sistema On-Grid y uno Off-Grid?</span>
-        <div class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></div>
-      </div>
-      <div class="faq-a">
-        <div class="faq-a-inner">Un sistema <strong>On-Grid</strong> (conectado a la red) trabaja en paralelo con operador de red: usa la energía solar de día y toma de la red lo que le falte. No requiere baterías, es el más rentable y permite inyectar excedentes. Sin embargo, si la red falla, el sistema se apaga por seguridad. Un sistema <strong>Off-Grid</strong> (aislado) usa baterías para operar de forma completamente autónoma, ideal para fincas o zonas sin red eléctrica. El sistema <strong>Híbrido</strong> combina lo mejor de ambos: baterías de respaldo + conexión a la red + autonomía ante cortes.</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-</div><!-- /tab-financiacion -->
+</div><!-- /portafolio -->
 
 <footer class="spark-site-footer">
   <div class="spark-footer-wrap">
@@ -1673,6 +1256,6 @@
   <line x1="39.5" y1="4" x2="40.3" y2="4" stroke="#FFD23C" stroke-width="1" opacity=".7"/>
 </svg>
 
-<script src="../assets/js/tool-fotovoltaico.js?v=20260913-shared-tools"></script>
+<script src="../assets/js/tool-fotovoltaico.js?v=20260913-solar-focus"></script>
 </body>
 </html>

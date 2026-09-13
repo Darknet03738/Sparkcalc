@@ -92,6 +92,11 @@ const PRESETS={
 /* ── UI HELPERS ──────────────────────────────────── */
 const $=id=>document.getElementById(id);
 const V=(id,v)=>$(id).textContent=v;
+const hideEl=(el)=>{ if(!el) return; el.classList.add('is-hidden'); el.style.display='none'; };
+const showEl=(el)=>{ if(!el) return; el.classList.remove('is-hidden'); el.style.display=''; };
+const showBlock=(el)=>{ if(!el) return; el.classList.remove('is-hidden'); el.style.display='block'; };
+const showFlex=(el)=>{ if(!el) return; el.classList.remove('is-hidden'); el.style.display='flex'; };
+const isHidden=(el)=>!el || el.classList.contains('is-hidden') || el.style.display==='none';
 
 /* ── EJEMPLOS RÁPIDOS ───────────────────────────── */
 // seg: 'R'|'C'|'I', bill/kwh en COP/kWh, estrato solo R,
@@ -155,9 +160,9 @@ function setSeg(s,btn){
   curSeg=s;
   document.querySelectorAll('.seg-tab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.q-seg').forEach(el=>el.style.display='none');
-  $('q'+s).style.display='';
-  $('results').style.display='none';
+  document.querySelectorAll('.q-seg').forEach(hideEl);
+  showEl($('q'+s));
+  hideEl($('results'));
   populatePresets();
   updateClientPlaceholders(s);
 }
@@ -187,7 +192,7 @@ function fmtCOP(n){
 
 function checkSubsidy(){
   const e=parseInt($('r-estrato').value);
-  $('subsidy-note').classList.toggle('show', e<=2 && $('results').style.display!=='none');
+  $('subsidy-note').classList.toggle('show', e<=2 && !isHidden($('results')));
 }
 function checkFP(v){
   if(parseFloat(v)<0.90){
@@ -295,12 +300,12 @@ function renderLoads(){
   $('ls-total-cop').textContent=fmtCOP(cost)+'/mes';
 
   if(loads.length===0){
-    $('empty-loads').style.display='';
-    $('loads-table').style.display='none';
+    showEl($('empty-loads'));
+    hideEl($('loads-table'));
     return;
   }
-  $('empty-loads').style.display='none';
-  $('loads-table').style.display='';
+  hideEl($('empty-loads'));
+  showEl($('loads-table'));
 
   const tbody=$('loads-tbody');
   tbody.innerHTML='';
@@ -480,7 +485,7 @@ function calculateLoads(){
 /* ── SHOW RESULTS ────────────────────────────────── */
 function showResults(r,{estrato,fpVal,fpPenalty,years,label}){
   const res=$('results');
-  res.style.display='block';
+  showBlock(res);
   res.scrollIntoView({behavior:'smooth',block:'start'});
 
   $('res-title').textContent=`Resultados · ${label}`;
@@ -501,7 +506,7 @@ function showResults(r,{estrato,fpVal,fpPenalty,years,label}){
   // Desglose de cálculos
   const desgEl=$('calc-desglose');
   if(desgEl){
-    desgEl.style.display='block';
+    showBlock(desgEl);
     fillDesglose(r,lastResult);
   }
   $('d-tariff').textContent='$'+fmt(r.tariffRate,0)+'/kWh';
@@ -517,11 +522,13 @@ function showResults(r,{estrato,fpVal,fpPenalty,years,label}){
   $('fp-alert').classList.toggle('show', hasFP);
   if(hasFP){
     $('fp-alert-text').textContent=`Tu FP actual es ${fpVal.toFixed(2)}, por debajo del límite CREG (0.90). Se estima un ahorro adicional de ${fmtCOP(r.fpSaving)}/año mediante un banco de capacitores automático (inversión estimada: ${fmtCOP(r.capCost)}).`;
-    $('fp-row').style.display=$('cap-row').style.display='flex';
+    showFlex($('fp-row'));
+    showFlex($('cap-row'));
     $('d-fpsav').textContent=fmtCOP(r.fpSaving)+'/año';
     $('d-cap').textContent=fmtCOP(r.capCost);
   } else {
-    $('fp-row').style.display=$('cap-row').style.display='none';
+    hideEl($('fp-row'));
+    hideEl($('cap-row'));
   }
 
   // Eco
@@ -541,7 +548,7 @@ function showResults(r,{estrato,fpVal,fpPenalty,years,label}){
   const scEl=$('savings-compare');
   const pbEl=$('payback-bar-wrap');
   if(scEl){
-    scEl.style.display='';
+    showEl(scEl);
     const bill=lastResult.bill;
     const monthlySave=r.annSave1/12;
     const afterBill=Math.max(0,bill-monthlySave);
@@ -551,7 +558,7 @@ function showResults(r,{estrato,fpVal,fpPenalty,years,label}){
     $('sc-pct').textContent=pctSaved+'%';
   }
   if(pbEl){
-    pbEl.style.display='';
+    showEl(pbEl);
     const pbYrs=r.paybackSimple;
     const pct=Math.min(pbYrs/years*100,100);
     $('pb-fill').style.width='0%';
@@ -727,8 +734,8 @@ initRanges();
 
 function toggleDesglose(btn){
   const body=$('desglose-body');
-  const open=body.style.display!=='none';
-  body.style.display=open?'none':'block';
+  const open=!isHidden(body);
+  open ? hideEl(body) : showBlock(body);
   const arr=btn.querySelector('.desglose-arrow');
   if(arr)arr.style.transform=open?'':'rotate(180deg)';
 }
@@ -803,7 +810,7 @@ function onTariffChange(el){
 function renderPanelViz(n,panelWp=450){
   const wrap=$('panel-viz-wrap');
   if(!wrap||n<1)return;
-  wrap.style.display='block';
+  showBlock(wrap);
   const PW=26,PH=18,PG=5;
   const shown=Math.min(n,24);
   const cols=shown<=4?shown:shown<=8?4:shown<=12?4:shown<=16?4:8;
@@ -859,7 +866,7 @@ function updateEcoImpact(annualKwh){
 
   const pending = document.getElementById('eco-pending');
   const grid    = document.getElementById('eco-impact-grid');
-  if(pending) pending.style.display = 'none';
+  hideEl(pending);
   if(grid)    grid.classList.add('visible');
 
   animateCounter('eco-co2',   co2Kg, 0);
@@ -884,38 +891,6 @@ function animateCounter(id, target, decimals){
     if(t < 1) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
-}
-
-/* ── PESTAÑAS DE PÁGINA ──────────────────────────── */
-function switchPageTab(tabId, btn){
-  document.querySelectorAll('.page-tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.page-tab-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  const panel = document.getElementById(tabId);
-  if(panel) panel.classList.add('active');
-  panel?.scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-/* ── FINANCIACIÓN TABS ───────────────────────────── */
-function switchFinTab(btn, panelId){
-  document.querySelectorAll('.fin-tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.fin-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  const panel = document.getElementById(panelId);
-  if(panel) panel.classList.add('active');
-}
-
-/* ── FAQ ACCORDION ───────────────────────────────── */
-function toggleFAQ(btn){
-  const isOpen=btn.classList.contains('open');
-  document.querySelectorAll('.faq-q.open').forEach(q=>{
-    q.classList.remove('open');
-    q.nextElementSibling.classList.remove('open');
-  });
-  if(!isOpen){
-    btn.classList.add('open');
-    btn.nextElementSibling.classList.add('open');
-  }
 }
 
 (function(){

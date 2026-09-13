@@ -48,7 +48,7 @@
 
   <div class="grid-2">
     <div class="card">
-      <div class="sec-title" style="font-size:.95rem; margin-bottom:.8rem;">Parámetros Fundamentales</div>
+      <div class="sec-title qe-inline-001">Parámetros Fundamentales</div>
       <div class="grid-2">
         <div>
           <label>Frecuencia f₁ (Hz)</label>
@@ -60,14 +60,14 @@
         </div>
         <div>
           <label>Tipo de dato a ingresar</label>
-          <div class="toggle-group" id="inputTypeToggle" style="margin-top:.3rem;">
+          <div class="toggle-group qe-inline-002" id="inputTypeToggle">
             <button class="active" data-val="voltage">⚡ Tensión</button>
             <button data-val="current">🔌 Corriente</button>
           </div>
         </div>
         <div>
           <label>Valores ingresados como</label>
-          <div class="toggle-group" id="amplitudeTypeToggle" style="margin-top:.3rem;">
+          <div class="toggle-group qe-inline-003" id="amplitudeTypeToggle">
             <button class="active" data-val="rms">RMS</button>
             <button data-val="peak">PICO</button>
           </div>
@@ -77,10 +77,10 @@
     </div>
 
     <div class="card">
-      <div class="sec-title" style="font-size:.95rem; margin-bottom:.8rem;">
+      <div class="sec-title qe-inline-004">
         Parámetros NTC 5001 <span class="pill">SOLO CORRIENTE</span>
       </div>
-      <div style="margin-bottom:.8rem;">
+      <div class="qe-inline-005">
         <label>Nivel de tensión del sistema <span class="auto-badge" id="autoDetectBadge">AUTO-DETECTADO</span></label>
         <select id="voltageLevel">
           <option value="bt">BT: Vn ≤ 1 kV (ej: 120V, 208V, 440V)</option>
@@ -101,7 +101,7 @@
           <div class="info-hint" id="iscIlCalcHint">Isc/IL calculado: <b id="iscIlCalcVal">20</b> — se selecciona la fila correspondiente de la Tabla 5.</div>
         </div>
         <div>
-          <label>IL (A) <span style="font-size:.7rem;color:var(--text2);font-weight:400;font-family:var(--body);">— valor medido en campo</span></label>
+          <label>IL (A) <span class="qe-inline-006">— valor medido en campo</span></label>
           <input type="number" id="ilValue" value="100" step="0.1" min="0">
           <div class="info-hint">Corriente de demanda máxima en PCC. <b>Es el denominador del TDD.</b> Debe medirse con analizador o amperímetro de gancho — no se puede calcular.</div>
         </div>
@@ -111,21 +111,21 @@
           </label>
           <input type="number" id="iscValue" value="2000" step="1" min="0">
           <div class="info-hint">Corriente de cortocircuito trifásica mínima en PCC.</div>
-          <button class="btn btn-sm" id="btnToggleTrafo" style="margin-top:.5rem;background:rgba(0,116,217,.15);color:var(--accent3);border:1px solid rgba(0,116,217,.3);font-size:.75rem;">
+          <button class="btn btn-sm qe-inline-007" id="btnToggleTrafo">
             ⚙ Calcular desde datos del transformador
           </button>
         </div>
       </div>
 
       <!-- Calculador Isc desde transformador (oculto por defecto) -->
-      <div id="trafoCalcPanel" style="display:none;margin-top:.8rem;padding:.8rem;background:rgba(0,116,217,.06);border:1px solid rgba(0,116,217,.2);border-radius:4px;">
-        <div style="font-family:var(--head);font-weight:700;font-size:.85rem;color:var(--accent3);letter-spacing:.08em;margin-bottom:.6rem;">
+      <div class="qe-inline-008 is-hidden" id="trafoCalcPanel">
+        <div class="qe-inline-009">
           ⚙ CALCULADOR Isc — DATOS DEL TRANSFORMADOR
         </div>
-        <div style="font-family:var(--mono);font-size:.72rem;color:var(--text2);margin-bottom:.7rem;">
+        <div class="qe-inline-010">
           Isc = S_trafo / (√3 × Vn × Zcc%)   →   resultado en [A]
         </div>
-        <div class="grid-3" style="gap:.7rem;margin-bottom:.7rem;">
+        <div class="grid-3 qe-inline-011">
           <div>
             <label>S_trafo (kVA)</label>
             <input type="number" id="trafoKVA" value="500" step="1" min="1">
@@ -142,25 +142,25 @@
             <div class="info-hint">Impedancia de cortocircuito del trafo (placa de características). Típico: 4–6%.</div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div class="qe-inline-012">
           <button class="btn btn-sm btn-primary" id="btnCalcIsc">▶ Calcular Isc</button>
-          <div id="iscCalcResult" style="font-family:var(--mono);font-size:.9rem;color:var(--text2);">—</div>
+          <div class="qe-inline-013" id="iscCalcResult">—</div>
         </div>
       </div>
 
-      <div class="info-hint" style="margin-top:.8rem;padding:.5rem;background:rgba(0,112,60,.08);border-radius:3px;">
+      <div class="info-hint qe-inline-014">
         ℹ️ Estos parámetros <b>solo afectan el cálculo de armónicos de CORRIENTE</b> (TDD y límites individuales por la Tabla 5 de NTC 5001). Si solo trabajas con tensión, no necesitas cambiarlos.
       </div>
     </div>
   </div>
 
   <!-- Tabla de 40 armónicos -->
-  <div class="card" style="margin-top:.5rem;">
-    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:.8rem; flex-wrap:wrap; gap:.6rem;">
-      <div class="sec-title" style="font-size:.95rem; margin-bottom:0;">
-        Amplitudes de los 40 Armónicos <span class="pill" id="inputModePill">TENSIÓN</span> <span class="pill" id="ampModePill" style="background:var(--accent3);">RMS</span>
+  <div class="card qe-inline-015">
+    <div class="qe-inline-016">
+      <div class="sec-title qe-inline-017">
+        Amplitudes de los 40 Armónicos <span class="pill" id="inputModePill">TENSIÓN</span> <span class="pill qe-inline-018" id="ampModePill">RMS</span>
       </div>
-      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+      <div class="qe-inline-019">
         <button class="btn btn-sm btn-accent" id="btnClear">Limpiar todo</button>
         <button class="btn btn-sm btn-primary" id="btnCalc">▶ Calcular</button>
       </div>
@@ -188,25 +188,25 @@
   <div class="wave-layout">
     <div class="wave-controls">
       <div class="sec-title">Armónicos Individuales <span class="pill">SELECCIONA CUÁLES VER</span></div>
-      <div class="card" style="margin-bottom:.8rem;">
-        <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:.8rem;">
+      <div class="card qe-inline-020">
+        <div class="qe-inline-021">
           <div>
-            <label style="margin-bottom:.3rem;">Tipo de señal:</label>
+            <label class="qe-inline-022">Tipo de señal:</label>
             <div class="toggle-group" id="harmSignalToggle">
               <button class="active" data-val="voltage">Tensión (V)</button>
               <button data-val="current">Corriente (A)</button>
             </div>
           </div>
           <div>
-            <label style="margin-bottom:.3rem;">Ciclos de onda:</label>
-            <input type="number" id="harmCycles" value="2" min="1" max="10" style="width:90px;">
+            <label class="qe-inline-023">Ciclos de onda:</label>
+            <input class="qe-inline-024" type="number" id="harmCycles" value="2" min="1" max="10">
           </div>
         </div>
-        <div style="font-family:var(--mono);font-size:.8rem;color:var(--text2);margin-bottom:.5rem;">Seleccionar armónicos a superponer:</div>
-        <div id="harm_selector" style="display:flex;flex-wrap:wrap;gap:.4rem;"></div>
+        <div class="qe-inline-025">Seleccionar armónicos a superponer:</div>
+        <div class="qe-inline-026" id="harm_selector"></div>
       </div>
     </div>
-    <div class="chart-wrap" style="margin-bottom:0;">
+    <div class="chart-wrap qe-inline-027">
       <div class="chart-title">▶ Ondas Armónicas Seleccionadas</div>
       <canvas id="chartHarms" height="130"></canvas>
     </div>
@@ -218,42 +218,42 @@
   <div class="wave-layout">
     <div class="wave-controls">
       <div class="sec-title">Suma de Fourier <span class="pill">FUNDAMENTAL vs FOURIER</span></div>
-      <div class="card" style="margin-bottom:1rem;">
-        <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div class="card qe-inline-028">
+        <div class="qe-inline-029">
           <div>
-            <label style="margin-bottom:.3rem;">Tipo de señal:</label>
+            <label class="qe-inline-030">Tipo de señal:</label>
             <div class="toggle-group" id="fourierSignalToggle">
               <button class="active" data-val="voltage">Tensión (V)</button>
               <button data-val="current">Corriente (A)</button>
             </div>
           </div>
           <div>
-            <label style="margin-bottom:.3rem;">Ciclos de onda:</label>
-            <input type="number" id="fourierCycles" value="2" min="1" max="10" style="width:90px;">
+            <label class="qe-inline-031">Ciclos de onda:</label>
+            <input class="qe-inline-032" type="number" id="fourierCycles" value="2" min="1" max="10">
           </div>
           <div>
-            <label style="margin-bottom:.3rem;">Mostrar:</label>
+            <label class="qe-inline-033">Mostrar:</label>
             <div class="toggle-group" id="fourierShowToggle">
               <button class="active" data-val="both">Ambas</button>
               <button data-val="fund">Solo Fund.</button>
               <button data-val="fourier">Solo Fourier</button>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:.4rem;">
-            <div style="display:flex;align-items:center;gap:.6rem;">
-              <div style="width:24px;height:3px;background:#0074D9;border-radius:2px;"></div>
-              <span style="font-family:var(--mono);font-size:.8rem;color:var(--text2);">Fundamental</span>
+          <div class="qe-inline-034">
+            <div class="qe-inline-035">
+              <div class="qe-inline-036"></div>
+              <span class="qe-inline-037">Fundamental</span>
             </div>
-            <div style="display:flex;align-items:center;gap:.6rem;">
-              <div style="width:24px;height:3px;background:#FF4136;border-radius:2px;"></div>
-              <span style="font-family:var(--mono);font-size:.8rem;color:var(--text2);">Suma Fourier</span>
+            <div class="qe-inline-038">
+              <div class="qe-inline-039"></div>
+              <span class="qe-inline-040">Suma Fourier</span>
             </div>
           </div>
         </div>
       </div>
-      <div id="fourier_metrics" style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;"></div>
+      <div class="qe-inline-041" id="fourier_metrics"></div>
     </div>
-    <div class="chart-wrap" style="margin-bottom:0;">
+    <div class="chart-wrap qe-inline-042">
       <div class="chart-title">▶ Comparación: Fundamental vs. Suma de Fourier (40 armónicos)</div>
       <canvas id="chartFourier" height="140"></canvas>
     </div>
@@ -265,14 +265,14 @@
   <div class="sec-title">Análisis de Calidad de Energía <span class="pill">NTC 5001</span></div>
 
   <!-- ── METRIC CARDS TENSIÓN / CORRIENTE ── -->
-  <div class="grid-2" style="margin-bottom:1rem;">
+  <div class="grid-2 qe-inline-043">
 
     <!-- TENSIÓN -->
-    <div class="card" style="border-top:3px solid var(--accent3);padding:1rem;">
-      <div class="sec-title" style="font-size:.85rem;color:var(--accent3);margin-bottom:.8rem;">
+    <div class="card qe-inline-044">
+      <div class="sec-title qe-inline-045">
         ⚡ ANÁLISIS DE TENSIÓN
       </div>
-      <div class="grid-2" style="gap:.6rem;">
+      <div class="grid-2 qe-inline-046">
         <div class="mcard blue">
           <div class="mcard-label">V<sub>1</sub> RMS</div>
           <div class="mcard-value"><span id="mc_V1rms">—</span><span class="mcard-unit">V</span></div>
@@ -307,11 +307,11 @@
     </div>
 
     <!-- CORRIENTE -->
-    <div class="card" style="border-top:3px solid var(--accent);padding:1rem;">
-      <div class="sec-title" style="font-size:.85rem;color:var(--accent);margin-bottom:.8rem;">
+    <div class="card qe-inline-047">
+      <div class="sec-title qe-inline-048">
         🔌 ANÁLISIS DE CORRIENTE
       </div>
-      <div class="grid-2" style="gap:.6rem;">
+      <div class="grid-2 qe-inline-049">
         <div class="mcard blue">
           <div class="mcard-label">I<sub>1</sub> RMS</div>
           <div class="mcard-value"><span id="mc_I1rms">—</span><span class="mcard-unit">A</span></div>
@@ -347,62 +347,62 @@
   </div>
 
   <!-- THD Gauges -->
-  <div class="grid-2" style="margin-bottom:1rem;">
-    <div class="card" style="border-top:3px solid var(--accent3);">
-      <div class="sec-title" style="font-size:1rem;color:var(--accent3);">Indicador THD de Tensión (THDv)</div>
-      <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
-        <div style="position:relative;width:160px;height:160px;flex-shrink:0;">
+  <div class="grid-2 qe-inline-050">
+    <div class="card qe-inline-051">
+      <div class="sec-title qe-inline-052">Indicador THD de Tensión (THDv)</div>
+      <div class="qe-inline-053">
+        <div class="qe-inline-054">
           <canvas id="cvGaugeV" width="160" height="160"></canvas>
         </div>
-        <div style="flex:1;" id="thd_v_explanation"></div>
+        <div class="qe-inline-055" id="thd_v_explanation"></div>
       </div>
     </div>
-    <div class="card" style="border-top:3px solid var(--accent);">
-      <div class="sec-title" style="font-size:1rem;color:var(--accent);">Indicador TDD de Corriente</div>
-      <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
-        <div style="position:relative;width:160px;height:160px;flex-shrink:0;">
+    <div class="card qe-inline-056">
+      <div class="sec-title qe-inline-057">Indicador TDD de Corriente</div>
+      <div class="qe-inline-058">
+        <div class="qe-inline-059">
           <canvas id="cvGaugeI" width="160" height="160"></canvas>
         </div>
-        <div style="flex:1;" id="thd_i_explanation"></div>
+        <div class="qe-inline-060" id="thd_i_explanation"></div>
       </div>
     </div>
   </div>
 
   <!-- NTC 5001 Tables -->
-  <div class="grid-2" style="margin-bottom:1rem;">
+  <div class="grid-2 qe-inline-061">
     <div class="card">
-      <div class="sec-title" style="font-size:.9rem;color:var(--accent3);margin-bottom:.6rem;">
+      <div class="sec-title qe-inline-062">
         Tabla 4 NTC 5001 — Valores de Referencia THDv
       </div>
       <table class="norm-table" id="normTableV">
         <thead><tr><th>Rango de Tensión</th><th>Dv Indiv. (%)</th><th>THDv (%)</th></tr></thead>
         <tbody>
-          <tr id="tvRow_bt" style="opacity:.6;">
-            <td>Vn ≤ 1 kV <span title="NTC 5001 §7.9.5 no define límites para BT. Se usa MT1 como referencia conservadora." style="cursor:help;color:var(--accent);">⚠</span></td>
-            <td style="color:var(--text2);">(3,0)*</td>
-            <td style="color:var(--text2);">(5,0)*</td>
+          <tr class="qe-inline-063" id="tvRow_bt">
+            <td>Vn ≤ 1 kV <span class="qe-inline-064" title="NTC 5001 §7.9.5 no define límites para BT. Se usa MT1 como referencia conservadora.">⚠</span></td>
+            <td class="qe-inline-065">(3,0)*</td>
+            <td class="qe-inline-066">(5,0)*</td>
           </tr>
           <tr id="tvRow_mt1"><td>1 kV &lt; Vn ≤ 69 kV</td><td>3,0</td><td>5,0</td></tr>
           <tr id="tvRow_mt2"><td>69 kV &lt; Vn ≤ 161 kV</td><td>1,5</td><td>2,5</td></tr>
           <tr id="tvRow_at"><td>Vn ≥ 161 kV</td><td>1,0</td><td>1,5</td></tr>
         </tbody>
       </table>
-      <div class="info-hint" style="margin-top:.5rem;">NTC 5001 §7.9.5 — Percentil 95%, 1 semana, agregación 10 min. <b>(*) BT no está en la Tabla 4 de NTC 5001; se referencia MT1 como criterio conservador.</b></div>
+      <div class="info-hint qe-inline-067">NTC 5001 §7.9.5 — Percentil 95%, 1 semana, agregación 10 min. <b>(*) BT no está en la Tabla 4 de NTC 5001; se referencia MT1 como criterio conservador.</b></div>
     </div>
     <div class="card">
-      <div class="sec-title" style="font-size:.9rem;color:var(--accent);margin-bottom:.6rem;">
+      <div class="sec-title qe-inline-068">
         Tabla 5 NTC 5001 — Límites TDD
       </div>
       <table class="norm-table" id="normTableI">
         <thead><tr><th>Isc/IL</th><th>&lt;11</th><th>11≤h&lt;17</th><th>17≤h&lt;23</th><th>23≤h&lt;35</th><th>h≥35</th><th>TDD</th></tr></thead>
         <tbody id="normTableIBody"></tbody>
       </table>
-      <div class="info-hint" style="margin-top:.5rem;">NTC 5001 §7.10.5 — Límites basados en Isc/IL y nivel de tensión.</div>
+      <div class="info-hint qe-inline-069">NTC 5001 §7.10.5 — Límites basados en Isc/IL y nivel de tensión.</div>
     </div>
   </div>
 
   <!-- Spectrum Charts -->
-  <div class="grid-2" style="margin-bottom:1rem;">
+  <div class="grid-2 qe-inline-070">
     <div class="chart-wrap">
       <div class="chart-title">▶ Espectro Dv Tensión (%) — 40 Armónicos</div>
       <canvas id="chartSpecV" height="200"></canvas>
@@ -424,56 +424,55 @@
   </div>
 
   <!-- Bar charts -->
-  <div class="card" style="border-top:3px solid var(--accent3); margin-bottom:1rem;">
-    <div class="sec-title" style="font-size:.95rem;color:var(--accent3);margin-bottom:.8rem;">
+  <div class="card qe-inline-071">
+    <div class="sec-title qe-inline-072">
       Distorsión Armónica Individual de TENSIÓN — Dv(%) = (V_H / V₁) × 100
     </div>
     <div id="dh_v_bars"></div>
   </div>
-  <div class="card" style="border-top:3px solid var(--accent);">
-    <div class="sec-title" style="font-size:.95rem;color:var(--accent);margin-bottom:.8rem;">
+  <div class="card qe-inline-073">
+    <div class="sec-title qe-inline-074">
       Distorsión Armónica Individual de CORRIENTE — Dh(%) = (I_H / I_L) × 100
     </div>
     <div id="dh_i_bars"></div>
   </div>
 
   <!-- ══════════════ CORRIENTE EN EL NEUTRO ══════════════ -->
-  <div class="card" style="border-top:3px solid #FF851B; margin-top:1rem;">
-    <div class="sec-title" style="font-size:1rem;color:#FF851B;margin-bottom:.6rem;">
+  <div class="card qe-inline-075">
+    <div class="sec-title qe-inline-076">
       ⚠ Corriente en el Neutro — Armónicos Triplen (Secuencia Cero)
-      <span class="pill" style="background:#FF851B;">3φ BALANCEADO</span>
+      <span class="pill qe-inline-077">3φ BALANCEADO</span>
     </div>
 
-    <div style="font-family:var(--mono);font-size:.78rem;color:var(--text2);line-height:1.7;margin-bottom:1rem;padding:.7rem;background:rgba(255,133,27,.06);border:1px solid rgba(255,133,27,.15);border-radius:4px;">
-      En un sistema trifásico <b style="color:var(--accent)">balanceado</b>, los armónicos de <b style="color:#FF851B">secuencia cero</b> (triplen: h = 3k → H3, H9, H15, H21, H27, H33, H39)
+    <div class="qe-inline-078">
+      En un sistema trifásico <b class="qe-inline-079">balanceado</b>, los armónicos de <b class="qe-inline-080">secuencia cero</b> (triplen: h = 3k → H3, H9, H15, H21, H27, H33, H39)
       <b>no se cancelan</b> en el neutro — se suman en fase.<br>
-      <span style="color:#FF851B;font-weight:700;">I<sub>N</sub> = 3 × √( I₃² + I₉² + I₁₅² + I₂₁² + I₂₇² + I₃₃² + I₃₉² )</span><br>
-      <span style="font-size:.7rem;color:rgba(122,171,138,.6);">IEC 60364-5-52 §C.2 · IEC 61000-3-2 · IEEE Std 519 §6.5 · NTC 2050 §310.15(B)(5)(c)</span>
+      <span class="qe-inline-081">I<sub>N</sub> = 3 × √( I₃² + I₉² + I₁₅² + I₂₁² + I₂₇² + I₃₃² + I₃₉² )</span><br>
+      <span class="qe-inline-082">IEC 60364-5-52 §C.2 · IEC 61000-3-2 · IEEE Std 519 §6.5 · NTC 2050 §310.15(B)(5)(c)</span>
     </div>
 
     <!-- ── Tipo de entrada + Ejemplo ── -->
-    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;">
-      <button class="btn btn-sm" id="btnNeutralExample"
-        style="background:rgba(255,133,27,.15);color:#FF851B;border:1px solid rgba(255,133,27,.3);">
+    <div class="qe-inline-083">
+      <button class="btn btn-sm qe-inline-084" id="btnNeutralExample" >
         📋 Cargar Ejemplo del Tablero
       </button>
-      <div id="neutralInputNote" style="font-family:var(--mono);font-size:.7rem;color:var(--text2);">
-        Usa el modo <b style="color:var(--accent3)">RMS/PICO</b> de la Tab 1 para cambiar.
+      <div class="qe-inline-085" id="neutralInputNote">
+        Usa el modo <b class="qe-inline-086">RMS/PICO</b> de la Tab 1 para cambiar.
       </div>
     </div>
 
     <!-- ── Paso a paso (oculto hasta que se calcule) ── -->
-    <div id="neutralStepByStep" style="display:none;margin-bottom:1rem;padding:1rem;background:rgba(255,133,27,.04);border:1px solid rgba(255,133,27,.12);border-radius:4px;">
-      <div style="font-family:var(--head);font-weight:700;font-size:.85rem;color:#FF851B;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.6rem;">
+    <div class="qe-inline-087 is-hidden" id="neutralStepByStep">
+      <div class="qe-inline-088">
         📐 Desarrollo Paso a Paso
       </div>
-      <div id="neutralStepContent" style="font-family:var(--mono);font-size:.8rem;color:var(--text2);line-height:2;"></div>
+      <div class="qe-inline-089" id="neutralStepContent"></div>
     </div>
 
     <!-- Metric cards neutro -->
-    <div class="grid-4" style="gap:.6rem;margin-bottom:1rem;" id="neutralMetrics">
-      <div class="mcard" style="--accent-bar:#FF851B;" id="mc_In_card">
-        <div class="mcard-label" style="color:#FF851B;">I<sub>N</sub> RMS</div>
+    <div class="grid-4 qe-inline-090" id="neutralMetrics">
+      <div class="mcard qe-inline-091" id="mc_In_card">
+        <div class="mcard-label qe-inline-092">I<sub>N</sub> RMS</div>
         <div class="mcard-value"><span id="mc_In">—</span><span class="mcard-unit">A</span></div>
         <div class="mcard-sub">3 × √(Σ I<sub>3k</sub>²)</div>
       </div>
@@ -489,13 +488,13 @@
       </div>
       <div class="mcard" id="mc_InDom_card">
         <div class="mcard-label">ARMÓNICO DOMINANTE</div>
-        <div class="mcard-value" style="font-size:1.3rem;"><span id="mc_InDom">—</span></div>
+        <div class="mcard-value qe-inline-093"><span id="mc_InDom">—</span></div>
         <div class="mcard-sub" id="mc_InDomSub">Mayor contribución al neutro</div>
       </div>
     </div>
 
     <!-- Tabla de contribución por armónico triplen -->
-    <div style="font-family:var(--head);font-weight:700;font-size:.85rem;color:#FF851B;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem;">
+    <div class="qe-inline-094">
       Contribución de cada armónico triplen al neutro
     </div>
     <div class="tbl-wrap">
@@ -512,10 +511,10 @@
         </thead>
         <tbody id="neutralTableBody"></tbody>
         <tfoot>
-          <tr style="background:rgba(255,133,27,.12);font-weight:700;">
-            <td colspan="3" style="text-align:right;color:#FF851B;">TOTAL I<sub>N</sub> =</td>
-            <td style="color:var(--accent);font-size:1.1rem;" id="neutralTotal">—</td>
-            <td style="color:var(--text2);">100%</td>
+          <tr class="qe-inline-095">
+            <td class="qe-inline-096" colspan="3">TOTAL I<sub>N</sub> =</td>
+            <td class="qe-inline-097" id="neutralTotal">—</td>
+            <td class="qe-inline-098">100%</td>
             <td></td>
           </tr>
         </tfoot>
@@ -523,18 +522,18 @@
     </div>
 
     <!-- Barras visuales -->
-    <div style="margin-top:1rem;">
-      <div style="font-family:var(--head);font-weight:700;font-size:.85rem;color:#FF851B;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem;">
+    <div class="qe-inline-099">
+      <div class="qe-inline-100">
         Espectro de contribución al neutro
       </div>
       <div id="neutral_bars"></div>
     </div>
 
     <!-- Alerta de sobredimensionamiento -->
-    <div id="neutralAlert" style="margin-top:1rem;padding:.8rem 1rem;border-radius:4px;font-family:var(--mono);font-size:.82rem;line-height:1.7;display:none;"></div>
+    <div class="qe-inline-101 is-hidden" id="neutralAlert"></div>
 
-    <div class="info-hint" style="margin-top:.8rem;padding:.5rem;background:rgba(255,133,27,.06);border-radius:3px;">
-      ℹ️ <b style="color:#FF851B;">¿Por qué los triplen?</b> En secuencia de fases (A-B-C), un armónico de orden h produce desfases de h×120°.
+    <div class="info-hint qe-inline-102">
+      ℹ️ <b class="qe-inline-103">¿Por qué los triplen?</b> En secuencia de fases (A-B-C), un armónico de orden h produce desfases de h×120°.
       Para h = 3k: el desfase es 3k×120° = k×360° = 0° → las tres fases están <b>en fase</b> → se suman, no se cancelan.
       Los armónicos de secuencia positiva (h=1,4,7,10…) y negativa (h=2,5,8,11…) sí se cancelan en el neutro de un sistema balanceado.<br>
       <b>Nota:</b> Si el sistema es <b>desbalanceado</b>, TODOS los armónicos contribuyen al neutro. Este cálculo asume sistema <b>perfectamente balanceado</b>.
