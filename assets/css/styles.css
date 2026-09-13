@@ -42,6 +42,7 @@ button, input { font: inherit; }
   z-index: 20;
   border-bottom: 1px solid rgba(69, 101, 122, .35);
   background: rgba(7, 16, 24, .88);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 }
 
@@ -278,7 +279,7 @@ footer { padding: 58px 0 30px; background: #050c12; }
 .quick-trigger .bolt { font-size: 20px; }
 .quick-panel { position: fixed; inset: 0 0 0 auto; z-index: 50; width: min(430px, 100%); overflow: auto; padding: 24px; border-left: 1px solid #31556a; background: #08131c; box-shadow: -24px 0 70px rgba(0, 0, 0, .55); transform: translateX(105%); transition: transform .25s ease; }
 .quick-panel.open { transform: none; }
-.quick-backdrop { position: fixed; inset: 0; z-index: 45; background: rgba(1, 7, 11, .62); backdrop-filter: blur(3px); opacity: 0; pointer-events: none; transition: .2s; }
+.quick-backdrop { position: fixed; inset: 0; z-index: 45; background: rgba(1, 7, 11, .62); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); opacity: 0; pointer-events: none; transition: .2s; }
 .quick-backdrop.open { opacity: 1; pointer-events: auto; }
 .quick-head { display: flex; align-items: start; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
 .quick-head h2 { margin: 6px 0; font-size: 24px; line-height: 1.2; }
