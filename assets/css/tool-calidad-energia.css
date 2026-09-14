@@ -216,6 +216,24 @@ select option { background: var(--bg2); color: var(--text); }
 .btn-accent { background: var(--accent); color: #000; }
 .btn-accent:hover { background: #ffe040; transform: translateY(-1px); }
 .btn-sm { padding: .45rem 1rem; font-size: .85rem; }
+.harmonic-toggle{
+  min-width:44px;
+  border-color:#b8cad4;
+  background:#ffffff;
+  color:#17313f;
+  opacity:1;
+}
+.harmonic-toggle:hover{
+  border-color:var(--sena);
+  background:#e9f7ff;
+  color:#071018;
+}
+.harmonic-toggle.active{
+  border-color:var(--sena);
+  background:var(--sena);
+  color:#fff;
+  box-shadow:0 8px 18px rgba(39,169,255,.18);
+}
 
 .tbl-wrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: .9rem; }
@@ -426,7 +444,7 @@ footer span { color: var(--sena); }
 }
 
 
-/* Inline styles moved from pages/calidad-potencia.html */
+/* Inline styles moved from pages/calidad-energia.html */
 .qe-inline-001{font-size:.95rem;margin-bottom:.8rem;}
 .qe-inline-002{margin-top:.3rem;}
 .qe-inline-003{margin-top:.3rem;}

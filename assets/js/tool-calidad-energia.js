@@ -446,13 +446,16 @@ function buildHarmSelector() {
   div.innerHTML = '';
   for (let n = 1; n <= N_HARM; n++) {
     const btn = document.createElement('button');
-    btn.className = `btn btn-sm ${selectedHarms.has(n) ? 'btn-primary' : ''}`;
+    btn.type = 'button';
+    btn.className = `btn btn-sm harmonic-toggle ${selectedHarms.has(n) ? 'btn-primary active' : ''}`;
     btn.textContent = `H${n}`;
-    btn.style.cssText = `opacity:${selectedHarms.has(n)?1:.4}; min-width:44px;`;
+    btn.title = `Superponer armónico H${n}`;
+    btn.setAttribute('aria-label', `Superponer armónico H${n}`);
+    btn.setAttribute('aria-pressed', String(selectedHarms.has(n)));
     btn.addEventListener('click', () => {
       if (selectedHarms.has(n)) selectedHarms.delete(n); else selectedHarms.add(n);
-      btn.className = `btn btn-sm ${selectedHarms.has(n) ? 'btn-primary' : ''}`;
-      btn.style.opacity = selectedHarms.has(n) ? 1 : .4;
+      btn.className = `btn btn-sm harmonic-toggle ${selectedHarms.has(n) ? 'btn-primary active' : ''}`;
+      btn.setAttribute('aria-pressed', String(selectedHarms.has(n)));
       updateHarmChart();
     });
     div.appendChild(btn);
