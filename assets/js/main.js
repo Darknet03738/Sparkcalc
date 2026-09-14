@@ -44,6 +44,20 @@ if (voltageInput && resistanceInput && currentOutput) {
   resistanceInput.addEventListener("input", calculateCurrent);
 }
 
+window.addEventListener("pageshow", (event) => {
+  document.body.classList.remove("page-exit");
+
+  if (event.persisted) {
+    document.body.style.opacity = "1";
+    document.body.style.animation = "none";
+
+    window.requestAnimationFrame(() => {
+      document.body.style.animation = "";
+      document.body.style.opacity = "";
+    });
+  }
+});
+
 document.querySelectorAll("a[href]").forEach((link) => {
   const url = new URL(link.href, window.location.href);
   const isSamePageHash = url.pathname === window.location.pathname && url.hash;
